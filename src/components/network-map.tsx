@@ -257,7 +257,14 @@ function PopMarker({
   return (
     <g>
       {active && (
-        <circle cx={pop.x} cy={pop.y} r={18} className="fill-primary/25 motion-safe:animate-ping" />
+        /* An SVG element scales about the viewBox origin unless the transform is
+           boxed to the shape itself, which sent the ping drifting off the pin. */
+        <circle
+          cx={pop.x}
+          cy={pop.y}
+          r={18}
+          className="origin-center fill-primary/25 [transform-box:fill-box] motion-safe:animate-ping"
+        />
       )}
       <circle
         cx={pop.x}
