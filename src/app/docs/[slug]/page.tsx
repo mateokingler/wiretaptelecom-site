@@ -5,7 +5,7 @@ import { ArrowLeftIcon, ArrowRightIcon, ChevronRightIcon } from "lucide-react";
 import { DocBlocks } from "@/components/docs/doc-blocks";
 import { DocToc } from "@/components/docs/doc-toc";
 import { DocsSidebar, DocsSidebarMobile } from "@/components/docs/docs-sidebar";
-import { PhoneNumber, phoneHref } from "@/components/phone-link";
+import { phoneHref, phoneVanity } from "@/components/phone-link";
 import { Button } from "@/components/ui/button";
 import { docArticles, getAdjacent, getArticle } from "@/content/docs";
 import { docCategoryById, tableOfContents } from "@/lib/docs-schema";
@@ -78,9 +78,11 @@ export default async function Page({ params }: Props) {
           <div className="mt-16 max-w-2xl rounded-2xl bg-muted p-6">
             <p className="font-semibold">Still stuck?</p>
             <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+              {/* Mid-sentence, so the number is written out rather than using the
+                  hover swap, which reserves the width of the longer string. */}
               Our help desk answers on{" "}
-              <a href={phoneHref} className="group font-medium text-brand-blue">
-                <PhoneNumber className="inline-grid align-bottom" />
+              <a href={phoneHref} className="font-medium text-brand-blue">
+                {phoneVanity}
               </a>
               , or open a ticket. Including the right details gets you a real answer on
               the first reply — see{" "}

@@ -11,16 +11,33 @@ export const phoneHref = "tel:+18169473827";
  * Both strings share one grid cell, so the box is as wide as the longer of the
  * two and nothing reflows mid-swap. Reacts to hover on itself and on an
  * enclosing `group`, so a card or button can trigger the reveal too.
+ *
+ * The inactive string is `invisible` rather than merely transparent, which
+ * keeps it out of text selection, hit testing, and the accessibility tree.
  */
+const swap = "col-start-1 row-start-1 transition-[opacity,visibility] duration-150";
+
 export function PhoneNumber({ className }: { className?: string }) {
   return (
     <span className={cn("group/phone grid", className)}>
-      <span className="col-start-1 row-start-1 transition-opacity duration-150 group-hover/phone:opacity-0 group-hover:opacity-0 group-focus-visible:opacity-0">
+      <span
+        className={cn(
+          swap,
+          "group-hover/phone:invisible group-hover/phone:opacity-0",
+          "group-hover:invisible group-hover:opacity-0",
+          "group-focus-visible:invisible group-focus-visible:opacity-0"
+        )}
+      >
         {phoneVanity}
       </span>
       <span
-        aria-hidden
-        className="col-start-1 row-start-1 opacity-0 transition-opacity duration-150 group-hover/phone:opacity-100 group-hover:opacity-100 group-focus-visible:opacity-100"
+        className={cn(
+          swap,
+          "invisible opacity-0",
+          "group-hover/phone:visible group-hover/phone:opacity-100",
+          "group-hover:visible group-hover:opacity-100",
+          "group-focus-visible:visible group-focus-visible:opacity-100"
+        )}
       >
         {phoneDigits}
       </span>
