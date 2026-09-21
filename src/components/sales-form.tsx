@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { CheckIcon, Loader2Icon, PhoneIcon } from "lucide-react";
+import { CheckIcon, Loader2Icon } from "lucide-react";
+import { PhoneLink, phoneDigits } from "@/components/phone-link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -197,7 +198,7 @@ export function SalesForm() {
       setSubmitError(
         error instanceof Error && error.message
           ? error.message
-          : "We could not send that. Please try again, or call us at (877) 471-3603."
+          : `We could not send that. Please try again, or call us at ${phoneDigits}.`
       );
     }
   };
@@ -341,13 +342,10 @@ export function SalesForm() {
           <div className="min-h-8 grow" />
           <div className="rounded-2xl bg-muted p-5">
             <p className="text-sm font-medium">Need an answer sooner?</p>
-            <a
-              href="tel:+18774713603"
+            <PhoneLink
+              icon
               className="mt-2 inline-flex items-center gap-2 text-lg font-semibold text-brand-blue hover:underline"
-            >
-              <PhoneIcon className="size-4" />
-              (877) 471-3603
-            </a>
+            />
           </div>
         </div>
       )}

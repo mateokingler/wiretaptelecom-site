@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
-import { CheckIcon, PhoneIcon } from "lucide-react";
+import { CheckIcon } from "lucide-react";
+import { PhoneLink } from "@/components/phone-link";
 import { SalesForm } from "@/components/sales-form";
 import { LogoMarquee } from "@/components/logo-marquee";
 import {
@@ -115,13 +116,11 @@ export default function Page() {
                   <p className="text-sm text-white/70">
                     Prefer to just call? US-based specialists, business hours.
                   </p>
-                  <a
-                    href="tel:+18774713603"
+                  <PhoneLink
+                    icon
+                    iconClassName="size-5"
                     className="mt-1.5 inline-flex items-center gap-2.5 text-2xl font-semibold tracking-tight transition-colors hover:text-primary"
-                  >
-                    <PhoneIcon className="size-5" />
-                    (877) 471-3603
-                  </a>
+                  />
                 </div>
               </div>
             </div>

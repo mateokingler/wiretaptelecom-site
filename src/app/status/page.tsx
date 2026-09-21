@@ -6,6 +6,7 @@ import {
   CalendarClockIcon,
   TriangleAlertIcon,
 } from "lucide-react";
+import { PhoneNumber, phoneHref } from "@/components/phone-link";
 import { Button } from "@/components/ui/button";
 import {
   buildRows,
@@ -130,8 +131,13 @@ export default async function Page() {
             <Button size="lg" render={<a href={STATUS_PAGE_URL} />}>
               Open status.wiretaptelecom.com
             </Button>
-            <Button size="lg" variant="outline" render={<a href="tel:+18774713603" />}>
-              (877) 471-3603
+            <Button
+              size="lg"
+              variant="outline"
+              className="group"
+              render={<a href={phoneHref} />}
+            >
+              <PhoneNumber />
             </Button>
           </div>
         </div>

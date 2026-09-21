@@ -12,6 +12,7 @@ import {
   ZapIcon,
 } from "lucide-react";
 import { LogoMarquee, logoByName, logoSizes } from "@/components/logo-marquee";
+import { phoneVanity } from "@/components/phone-link";
 import { BillEstimator } from "@/components/bill-estimator";
 import { HeroDemo } from "@/components/hero-demo";
 import {
@@ -124,7 +125,7 @@ const compliance = [
   },
   {
     title: "Support",
-    description: "Published support coverage is 24/7, by phone at (877) 471-3603.",
+    description: `Published support coverage is 24/7, by phone at ${phoneVanity}.`,
   },
 ];
 

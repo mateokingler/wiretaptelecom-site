@@ -7,18 +7,19 @@ import {
   PhoneIcon,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
+import { PhoneNumber, phoneHref, phoneVanity } from "@/components/phone-link";
 
 export const metadata: Metadata = {
   title: "Support",
-  description:
-    "Three ways to get help from Wiretap Telecom: read the documentation, open a help desk ticket, or call the support line on (877) 471-3603.",
+  description: `Three ways to get help from Wiretap Telecom: read the documentation, open a help desk ticket, or call the support line on ${phoneVanity}.`,
 };
 
 type Option = {
   icon: LucideIcon;
   title: string;
   description: string;
-  action: string;
+  action: ReactNode;
   href: string;
   /** tel: and the help desk live outside the app, so they need a plain anchor. */
   external?: boolean;
@@ -47,8 +48,8 @@ const options: Option[] = [
     title: "Call support",
     description:
       "Prefer to talk it through? The support line reaches a US-based telecom specialist, not a tiered ticket queue.",
-    action: "(877) 471-3603",
-    href: "tel:+18774713603",
+    action: <PhoneNumber />,
+    href: phoneHref,
     external: true,
   },
 ];

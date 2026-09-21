@@ -101,7 +101,7 @@ export const trunkingArticles: DocArticle[] = [
       {
         kind: "note",
         title: "Stuck?",
-        body: "If you are not sure which template to use, or registration fails after the rebuild, call support on (877) 471-3603 or open a ticket in the support portal.",
+        body: "If you are not sure which template to use, or registration fails after the rebuild, call support on 816 WIRETAP (816-947-3827) or open a ticket in the support portal.",
       },
     ],
   },

@@ -78,7 +78,7 @@ const sendingSteps = [
   },
   {
     title: "Address it, subject line and all",
-    body: "Send to fax@core-fax.com and put the destination number in the subject. Ten digits, E.164, or buried in real text like “Re: title company @1 (877) 471-3603” all parse. Machines that cannot set a subject can send to 8774713603@core-fax.com instead.",
+    body: "Send to fax@core-fax.com and put the destination number in the subject. Ten digits, E.164, or buried in real text like “Re: title company @1 (816) 947-3827” all parse. Machines that cannot set a subject can send to 8169473827@core-fax.com instead.",
   },
   {
     title: "Attach your PDFs",

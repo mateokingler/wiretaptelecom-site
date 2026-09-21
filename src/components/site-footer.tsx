@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MailIcon, PhoneIcon } from "lucide-react";
+import { MailIcon } from "lucide-react";
+import { PhoneLink } from "@/components/phone-link";
 
 const columns = [
   {
@@ -92,13 +93,11 @@ export function SiteFooter() {
             their own PBX.
           </p>
           <div className="mt-7 space-y-3 text-sm">
-            <a
+            <PhoneLink
+              icon
+              iconClassName="text-primary"
               className="flex items-center gap-2.5 hover:text-primary"
-              href="tel:+18774713603"
-            >
-              <PhoneIcon className="size-4 text-primary" />
-              (877) 471-3603
-            </a>
+            />
             <a
               className="flex items-center gap-2.5 hover:text-primary"
               href="mailto:support@wiretaptelecom.com"

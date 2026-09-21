@@ -10,11 +10,11 @@ import {
   MessageSquareIcon,
   NetworkIcon,
   PhoneCallIcon,
-  PhoneIcon,
   PrinterIcon,
   UsersIcon,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { PhoneLink } from "@/components/phone-link";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -211,13 +211,10 @@ export function SiteHeader() {
         </NavigationMenu>
 
         <div className="ml-auto hidden items-center gap-2 lg:flex">
-          <a
-            href="tel:+18774713603"
+          <PhoneLink
+            icon
             className="mr-1 hidden items-center gap-1.5 whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground xl:inline-flex"
-          >
-            <PhoneIcon className="size-4" />
-            (877) 471-3603
-          </a>
+          />
           <Button variant="ghost" render={<a href="https://portal.wiretaptelecom.com" />}>
             Log in
           </Button>

@@ -272,7 +272,7 @@ export const supportArticles: DocArticle[] = [
             description:
               "On the [Wiretap homepage](https://wiretaptelecom.com), click **Support → Submit A Ticket**.",
           },
-          { term: "Phone", description: "(877) 471-3603" },
+          { term: "Phone", description: "816 WIRETAP (816-947-3827)" },
         ],
       },
       {

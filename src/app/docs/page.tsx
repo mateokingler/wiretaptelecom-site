@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRightIcon, PhoneIcon } from "lucide-react";
 import { DocsSearch } from "@/components/docs/docs-search";
+import { PhoneNumber, phoneHref } from "@/components/phone-link";
 import { Button } from "@/components/ui/button";
 import { articlesInCategory, docArticles } from "@/content/docs";
 import { docCategories } from "@/lib/docs-schema";
@@ -149,11 +150,11 @@ export default function Page() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white"
-                  render={<a href="tel:+18774713603" />}
+                  className="group border-white/25 bg-transparent text-white hover:bg-white/10 hover:text-white"
+                  render={<a href={phoneHref} />}
                 >
                   <PhoneIcon className="size-4" />
-                  (877) 471-3603
+                  <PhoneNumber />
                 </Button>
               </div>
             </div>

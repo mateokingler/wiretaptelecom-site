@@ -118,7 +118,7 @@ export const faxArticles: DocArticle[] = [
       },
       {
         kind: "text",
-        body: "The subject accepts E.164 and ordinary variations: `8774713603`, `18774713603`, `+18774713603`. You can embed it in text too, such as `Re: Title Company Fax @1 (877) 471-3603`. If your account has a default area code set, seven digits work as well.",
+        body: "The subject accepts E.164 and ordinary variations: `8169473827`, `18169473827`, `+18169473827`. You can embed it in text too, such as `Re: Title Company Fax @1 (816) 947-3827`. If your account has a default area code set, seven digits work as well.",
       },
       {
         kind: "note",
@@ -127,7 +127,7 @@ export const faxArticles: DocArticle[] = [
       },
       {
         kind: "text",
-        body: "Some enterprise fax machines cannot put anything in a subject line. For those, put the destination in the address instead: `8774713603@core-fax.com`.",
+        body: "Some enterprise fax machines cannot put anything in a subject line. For those, put the destination in the address instead: `8169473827@core-fax.com`.",
       },
       { kind: "heading", text: "Add a cover page" },
       {
