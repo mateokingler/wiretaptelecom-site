@@ -15,7 +15,7 @@ import {
   UsersIcon,
   WalletIcon,
 } from "lucide-react";
-import { logoByName } from "@/components/logo-marquee";
+import { logoByName, logoSizes } from "@/components/logo-marquee";
 import { SendSurfaces } from "@/components/send-surfaces";
 import { TcrPipeline } from "@/components/tcr-pipeline";
 import {
@@ -450,6 +450,7 @@ export default function Page() {
                           alt={`${logo.name} logo`}
                           width={logo.width}
                           height={logo.height}
+                          sizes={logoSizes(logo, 32)}
                           unoptimized={logo.src.endsWith(".svg")}
                           className="max-h-8 w-auto max-w-[9rem] object-contain"
                         />

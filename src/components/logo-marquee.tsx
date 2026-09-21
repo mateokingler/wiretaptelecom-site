@@ -24,6 +24,17 @@ export const logoByName = new Map(
   compatibleSystems.map((system) => [system.name, system])
 );
 
+type Logo = (typeof compatibleSystems)[number];
+
+/**
+ * These marks are declared at their intrinsic size but drawn a few dozen pixels
+ * tall, so without a `sizes` hint the browser downloads the full-size file.
+ * Returns the width the logo actually occupies at `heightPx`.
+ */
+export function logoSizes(logo: Logo, heightPx: number): string {
+  return `${Math.ceil((heightPx * logo.width) / logo.height)}px`;
+}
+
 type LogoMarqueeProps = {
   /** Tailwind colour for the marquee's fade edges, matching the section behind it. */
   fadeClassName?: string;
@@ -42,6 +53,7 @@ export function LogoMarquee({ fadeClassName }: LogoMarqueeProps) {
               alt={`${system.name} logo`}
               width={system.width}
               height={system.height}
+              sizes={logoSizes(system, 48)}
               unoptimized={system.src.endsWith(".svg")}
               className={cn("w-auto object-contain opacity-55 brightness-0", system.size)}
             />

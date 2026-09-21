@@ -30,6 +30,7 @@
   --color-navy: var(--navy);
   --color-navy-soft: var(--navy-soft);
   --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-ink: var(--brand-blue-ink);
   --color-brand-sky: var(--brand-sky);
   --color-tint-sky: var(--tint-sky);
   --color-tint-sand: var(--tint-sand);
@@ -83,6 +84,9 @@
   --navy-soft: #0e3550;
   /* Sampled from the "telecom" wordmark in the logo. */
   --brand-blue: #0f75bb;
+  /* Brand blue clears 4.5:1 on white but not on the tints, so small text on a
+     tinted panel uses this darker step instead. */
+  --brand-blue-ink: #0b5f9c;
   --brand-sky: #39a6ef;
   --tint-sky: #e9f3fb;
   --tint-sand: #fdf4d6;

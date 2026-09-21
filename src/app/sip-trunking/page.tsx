@@ -19,7 +19,7 @@ import {
   WalletIcon,
 } from "lucide-react";
 import { FailoverDemo } from "@/components/failover-demo";
-import { compatibleSystems } from "@/components/logo-marquee";
+import { compatibleSystems, logoSizes } from "@/components/logo-marquee";
 import { NetworkMap } from "@/components/network-map";
 import {
   Accordion,
@@ -466,6 +466,7 @@ export default function Page() {
                     alt={`${system.name} logo`}
                     width={system.width}
                     height={system.height}
+                    sizes={logoSizes(system, 40)}
                     unoptimized={system.src.endsWith(".svg")}
                     className="max-h-10 w-auto max-w-full object-contain"
                   />

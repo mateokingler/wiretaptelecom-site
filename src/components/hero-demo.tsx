@@ -13,7 +13,7 @@ import {
   WaypointsIcon,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { logoByName } from "@/components/logo-marquee";
+import { logoByName, logoSizes } from "@/components/logo-marquee";
 import { cn } from "@/lib/utils";
 
 const stepLabels = ["Trunk", "PBX", "Call"];
@@ -269,7 +269,8 @@ export function HeroDemo() {
                 className={cn(
                   "flex flex-1 items-center gap-2 rounded-full px-2.5 py-1.5 text-xs font-semibold transition-colors duration-300",
                   current ? "bg-navy text-white" : "text-muted-foreground",
-                  !current && !done && "opacity-45"
+                  // Dimming stops at 80%: below that the label drops under 4.5:1.
+                  !current && !done && "opacity-80"
                 )}
               >
                 <span
@@ -328,7 +329,7 @@ export function HeroDemo() {
                       className={cn(
                         "rounded-xl border px-3 py-2 text-center text-sm font-medium transition-colors duration-300",
                         scenario.auth === option.id
-                          ? "border-brand-blue bg-brand-blue/8 text-brand-blue"
+                          ? "border-brand-blue bg-brand-blue/8 text-brand-blue-ink"
                           : "border-border text-muted-foreground"
                       )}
                     >
@@ -361,7 +362,7 @@ export function HeroDemo() {
                       key={line}
                       className={cn(
                         "flex items-center gap-2 text-xs transition-opacity duration-300",
-                        index <= provision ? "opacity-100" : "opacity-35"
+                        index <= provision ? "opacity-100" : "opacity-70"
                       )}
                     >
                       {index < provision ? (
@@ -405,7 +406,7 @@ export function HeroDemo() {
                         "flex flex-col items-center gap-2 rounded-xl border px-2 py-3 transition-colors duration-300",
                         pbx === option.id
                           ? "border-brand-blue bg-brand-blue/8"
-                          : "border-border opacity-55"
+                          : "border-border opacity-80"
                       )}
                     >
                       <span className="flex h-7 w-full items-center justify-center">
@@ -414,6 +415,7 @@ export function HeroDemo() {
                           alt=""
                           width={logo.width}
                           height={logo.height}
+                          sizes={logoSizes(logo, 28)}
                           unoptimized={logo.src.endsWith(".svg")}
                           className="max-h-7 w-auto max-w-full object-contain"
                         />

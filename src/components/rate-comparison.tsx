@@ -118,7 +118,7 @@ export function RateComparison() {
               )}
               <span className="flex items-baseline gap-2">
                 {!rate.ours && (
-                  <span className="text-[0.7rem] font-medium text-muted-foreground/75">
+                  <span className="text-[0.7rem] font-medium text-muted-foreground/90">
                     {(rate.value / ours.value).toFixed(1)}× our rate
                   </span>
                 )}

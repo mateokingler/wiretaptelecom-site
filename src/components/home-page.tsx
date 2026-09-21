@@ -11,7 +11,7 @@ import {
   ShieldCheckIcon,
   ZapIcon,
 } from "lucide-react";
-import { LogoMarquee, logoByName } from "@/components/logo-marquee";
+import { LogoMarquee, logoByName, logoSizes } from "@/components/logo-marquee";
 import { BillEstimator } from "@/components/bill-estimator";
 import { HeroDemo } from "@/components/hero-demo";
 import {
@@ -338,7 +338,7 @@ export function HomePage() {
                     <p className="mt-3 max-w-md text-muted-foreground">
                       {tile.description}
                     </p>
-                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue">
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue-ink">
                       Learn more
                       <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
@@ -483,6 +483,7 @@ export function HomePage() {
                           alt=""
                           width={logo.width}
                           height={logo.height}
+                          sizes={logoSizes(logo, 48)}
                           unoptimized={logo.src.endsWith(".svg")}
                           className="max-h-12 w-auto max-w-full object-contain"
                         />
