@@ -94,10 +94,10 @@ export function SiteFooter() {
           <div className="mt-7 space-y-3 text-sm">
             <a
               className="flex items-center gap-2.5 hover:text-primary"
-              href="tel:+18774718000"
+              href="tel:+18774713603"
             >
               <PhoneIcon className="size-4 text-primary" />
-              1-877-471-8000
+              (877) 471-3603
             </a>
             <a
               className="flex items-center gap-2.5 hover:text-primary"

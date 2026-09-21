@@ -197,7 +197,7 @@ export function SalesForm() {
       setSubmitError(
         error instanceof Error && error.message
           ? error.message
-          : "We could not send that. Please try again, or call us at 1-877-471-8000."
+          : "We could not send that. Please try again, or call us at (877) 471-3603."
       );
     }
   };
@@ -342,11 +342,11 @@ export function SalesForm() {
           <div className="rounded-2xl bg-muted p-5">
             <p className="text-sm font-medium">Need an answer sooner?</p>
             <a
-              href="tel:+18774718000"
+              href="tel:+18774713603"
               className="mt-2 inline-flex items-center gap-2 text-lg font-semibold text-brand-blue hover:underline"
             >
               <PhoneIcon className="size-4" />
-              1-877-471-8000
+              (877) 471-3603
             </a>
           </div>
         </div>

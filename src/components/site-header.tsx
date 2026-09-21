@@ -212,11 +212,11 @@ export function SiteHeader() {
 
         <div className="ml-auto hidden items-center gap-2 lg:flex">
           <a
-            href="tel:+18774718000"
+            href="tel:+18774713603"
             className="mr-1 hidden items-center gap-1.5 whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-foreground xl:inline-flex"
           >
             <PhoneIcon className="size-4" />
-            1-877-471-8000
+            (877) 471-3603
           </a>
           <Button variant="ghost" render={<a href="https://portal.wiretaptelecom.com" />}>
             Log in

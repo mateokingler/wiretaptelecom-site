@@ -116,11 +116,11 @@ export default function Page() {
                     Prefer to just call? US-based specialists, business hours.
                   </p>
                   <a
-                    href="tel:+18774718000"
+                    href="tel:+18774713603"
                     className="mt-1.5 inline-flex items-center gap-2.5 text-2xl font-semibold tracking-tight transition-colors hover:text-primary"
                   >
                     <PhoneIcon className="size-5" />
-                    1-877-471-8000
+                    (877) 471-3603
                   </a>
                 </div>
               </div>

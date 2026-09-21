@@ -124,7 +124,7 @@ const compliance = [
   },
   {
     title: "Support",
-    description: "Published support coverage is 24/7, by phone at 1-877-471-8000.",
+    description: "Published support coverage is 24/7, by phone at (877) 471-3603.",
   },
 ];
 
