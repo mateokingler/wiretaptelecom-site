@@ -8,7 +8,6 @@ import {
   HashIcon,
   MenuIcon,
   MessageSquareIcon,
-  NetworkIcon,
   PhoneCallIcon,
   PrinterIcon,
   UsersIcon,
@@ -118,23 +117,36 @@ function MenuPanel({ items }: { items: NavLink[] }) {
           );
         })}
       </ul>
-      <div className="hidden w-60 shrink-0 flex-col justify-between rounded-2xl bg-navy p-5 text-white lg:flex">
-        <div>
-          <NetworkIcon className="size-5 text-primary" />
-          <p className="mt-3 font-semibold leading-snug">Not sure what you need?</p>
-          <p className="mt-2 text-[0.8rem] leading-snug text-white/70">
-            Tell us what PBX you run and how many call paths you need. We will size it
-            with you.
-          </p>
-        </div>
-        <NavigationMenuLink
-          href="/talk-to-sales"
-          className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-[0.8rem] font-semibold text-primary-foreground hover:bg-primary/85 focus:bg-primary/85"
-        >
-          Talk to sales
-          <ArrowRightIcon className="size-3.5" />
-        </NavigationMenuLink>
-      </div>
+      <NavigationMenuLink
+        render={<Link href="/talk-to-sales" />}
+        className="group/promo relative hidden w-60 shrink-0 flex-col items-start justify-between overflow-hidden rounded-2xl bg-navy p-5 text-white hover:bg-navy focus:bg-navy lg:flex"
+      >
+        <Image
+          src="/brand/nav-network.webp"
+          alt=""
+          fill
+          sizes="240px"
+          className="object-cover object-right-bottom"
+        />
+        {/* The artwork brightens toward the lower right, so the copy sits on a
+            scrim rather than trusting the crop to stay dark behind it. */}
+        <span
+          className="absolute inset-0 bg-gradient-to-r from-navy from-30% to-transparent to-85%"
+          aria-hidden
+        />
+        <span className="relative block max-w-[11rem] text-balance">
+          <span className="block font-semibold leading-snug">
+            Not sure <span className="text-brand-sky">what you need</span>?
+          </span>
+          <span className="mt-2 block text-[0.8rem] leading-snug text-white/70">
+            Tell us your PBX and call paths.
+          </span>
+        </span>
+        <span className="relative mt-5 inline-flex items-center gap-1.5 text-[0.8rem] font-semibold text-brand-sky group-hover/promo:underline">
+          Learn more
+          <ArrowRightIcon className="size-3.5 transition-transform group-hover/promo:translate-x-0.5" />
+        </span>
+      </NavigationMenuLink>
     </div>
   );
 }

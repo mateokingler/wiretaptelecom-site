@@ -18,7 +18,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "SIP Trunking, Numbers, Messaging, and Fax | Wiretap Telecom",
+    // Only routes without their own title fall back to this, which in practice
+    // means the 404. Next.js ignores a metadata export in not-found.tsx, so a
+    // neutral default beats having that page wear the homepage's title.
+    default: "Wiretap Telecom",
     template: "%s | Wiretap Telecom",
   },
   description:
