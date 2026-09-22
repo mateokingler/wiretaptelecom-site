@@ -253,7 +253,7 @@ export function TryIt({ serviceId, operation, baseUrl, security }: Props) {
                 <TabsTrigger
                   key={language.id}
                   value={language.id}
-                  // The primitive's resting colour lands just under 4.5:1.
+                  // The primitive's resting color lands just under 4.5:1.
                   className="flex-none text-muted-foreground"
                 >
                   {language.label}

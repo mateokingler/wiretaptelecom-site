@@ -126,7 +126,7 @@ const products: Product[] = [
     icon: MonitorPlayIcon,
     name: "Visual Fax Tracking",
     summary:
-      "A live control centre for every fax moving in or out, included free with Core-Fax.",
+      "A live control center for every fax moving in or out, included free with Core-Fax.",
     points: [
       "In-flight status within seconds of sending",
       "Gateway, carrier switch, and caller ID metadata",
@@ -219,7 +219,7 @@ const costs = [
 const faqs = [
   {
     q: "Do I need a fax machine?",
-    a: "No. Core-Fax works entirely through email — you attach PDFs to a message and a fax comes out at the other end, and inbound faxes arrive as PDFs in your inbox. If you would rather keep the machine you have, the Fax ATA Gateway connects it directly to us through an analogue telephone adapter, which also takes your PBX out of the fax path.",
+    a: "No. Core-Fax works entirely through email — you attach PDFs to a message and a fax comes out at the other end, and inbound faxes arrive as PDFs in your inbox. If you would rather keep the machine you have, the Fax ATA Gateway connects it directly to us through an analog telephone adapter, which also takes your PBX out of the fax path.",
   },
   {
     q: "Is there really no per-page fee?",
@@ -231,7 +231,7 @@ const faqs = [
   },
   {
     q: "Can I add a cover page?",
-    a: "Yes. Attach it alongside your other PDFs with a recognised filename — coverpage.pdf, cover-page.pdf, cover_page.pdf and similar variations all work, in any case. Adding one changes how the email is processed: instead of each attachment going as its own fax, Core-Fax merges all the PDFs into a single document with the cover page first.",
+    a: "Yes. Attach it alongside your other PDFs with a recognized filename — coverpage.pdf, cover-page.pdf, cover_page.pdf and similar variations all work, in any case. Adding one changes how the email is processed: instead of each attachment going as its own fax, Core-Fax merges all the PDFs into a single document with the cover page first.",
   },
   {
     q: "Should my fax number be dedicated or hybrid?",
@@ -239,11 +239,11 @@ const faqs = [
   },
   {
     q: "What is an ATA, and where do I get one?",
-    a: "An analogue telephone adapter converts fax signalling into SIP so the machine can talk to a modern network. They are inexpensive and sold in most online electronics marketplaces — you do not buy it from us. We give you credentials in the portal, you change three values on the device, and that is the installation. We support the connectivity and will happily help troubleshoot the device itself.",
+    a: "An analog telephone adapter converts fax signaling into SIP so the machine can talk to a modern network. They are inexpensive and sold in most online electronics marketplaces — you do not buy it from us. We give you credentials in the portal, you change three values on the device, and that is the installation. We support the connectivity and will happily help troubleshoot the device itself.",
   },
   {
     q: "How secure is it?",
-    a: "Inside our network, faxes are handled with industry best practices and sit in a private network within an access-controlled data centre. Being straight with you about the rest: a fax still traverses the PSTN and lands on a machine in somebody else's office, so no carrier can honestly call the whole path secure. Treat the transport as protected and the destination as you would any other.",
+    a: "Inside our network, faxes are handled with industry best practices and sit in a private network within an access-controlled data center. Being straight with you about the rest: a fax still traverses the PSTN and lands on a machine in somebody else's office, so no carrier can honestly call the whole path secure. Treat the transport as protected and the destination as you would any other.",
   },
   {
     q: "How quickly does a fax show up in the tracker?",

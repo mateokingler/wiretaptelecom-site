@@ -44,7 +44,7 @@ const phases: Phase[] = [
     id: "cut",
     lanes: ["failed", "standby", "standby"],
     landing: { icon: BuildingIcon, label: OFFICE, sub: "Circuit lost", tone: "warn" },
-    banner: { tone: "bad", text: "Primary circuit lost — fibre cut at the site" },
+    banner: { tone: "bad", text: "Primary circuit lost — fiber cut at the site" },
     hold: 1500,
   },
   {
@@ -85,7 +85,7 @@ const phases: Phase[] = [
 ];
 
 const lanes: { id: string; icon: LucideIcon; name: string; detail: string }[] = [
-  { id: "primary", icon: ZapIcon, name: "Primary trunk", detail: "Fibre · 203.0.113.24" },
+  { id: "primary", icon: ZapIcon, name: "Primary trunk", detail: "Fiber · 203.0.113.24" },
   { id: "backup", icon: RadioTowerIcon, name: "Backup trunk", detail: "Secondary circuit" },
   {
     id: "forward",

@@ -282,7 +282,7 @@ export function PartnerConsole() {
                   </span>
                 </>
               ) : (
-                <span className="text-sm font-normal text-white/70">Totalling…</span>
+                <span className="text-sm font-normal text-white/70">Totaling…</span>
               )}
             </span>
           </div>

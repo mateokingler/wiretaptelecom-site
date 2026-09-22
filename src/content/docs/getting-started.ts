@@ -172,7 +172,7 @@ export const gettingStartedArticles: DocArticle[] = [
       },
       {
         kind: "text",
-        body: "Inserting a CSR between the MSP and the CSP raises retail cost for the customer and puts the account at risk. An MSP can avoid becoming a CSR entirely by white-labelling a CSP's products instead of routing calls through its own infrastructure.",
+        body: "Inserting a CSR between the MSP and the CSP raises retail cost for the customer and puts the account at risk. An MSP can avoid becoming a CSR entirely by white-labeling a CSP's products instead of routing calls through its own infrastructure.",
       },
       { kind: "heading", text: "Three models of carrier" },
       {
@@ -202,7 +202,7 @@ export const gettingStartedArticles: DocArticle[] = [
       },
       {
         kind: "text",
-        body: "Our Core-MSP partner program removes the need for a CSR in the call path, which cuts out redundant technology, extra call hops, and the outages that come with them. We run a minimum of quadruple redundancy plus full geographic redundancy, in data centres inside the United States. We have been operating since November 2012, are debt free, and do not enter commercial agreements with PBX manufacturers or other CSPs.",
+        body: "Our Core-MSP partner program removes the need for a CSR in the call path, which cuts out redundant technology, extra call hops, and the outages that come with them. We run a minimum of quadruple redundancy plus full geographic redundancy, in data centers inside the United States. We have been operating since November 2012, are debt free, and do not enter commercial agreements with PBX manufacturers or other CSPs.",
       },
     ],
   },
@@ -210,7 +210,7 @@ export const gettingStartedArticles: DocArticle[] = [
     slug: "p2lite-quotes",
     title: "Create a customer quote with P2Lite",
     summary:
-      "Build and send a fully customised quote yourself, without waiting on a sales rep. Approval creates the account automatically.",
+      "Build and send a fully customized quote yourself, without waiting on a sales rep. Approval creates the account automatically.",
     category: "start",
     keywords: ["p2lite", "quote", "msp", "pricing", "floor price", "kyc", "reseller"],
     updated: "2025-06-20",

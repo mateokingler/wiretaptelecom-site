@@ -94,7 +94,7 @@ export function RateComparison() {
       <ul className="mt-6 space-y-4">
         {active.rates.map((rate, index) => (
           <li key={rate.name}>
-            {/* Our row centres because the logo is taller than the text line;
+            {/* Our row centers because the logo is taller than the text line;
                 the rest stay on the baseline so "1.5× our rate" sits level
                 with the price next to it. */}
             <div

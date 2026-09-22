@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 type Props = {
   code: string;
-  /** Only `json` is tokenised; everything else renders plain. */
+  /** Only `json` is tokenized; everything else renders plain. */
   language?: "json" | "text";
   /** Shown top-left, e.g. the shell or the file a sample belongs in. */
   label?: string;
@@ -65,11 +65,11 @@ function CopyButton({ code }: { code: string }) {
 }
 
 /**
- * Enough of a JSON tokeniser for request and response bodies, which beats
+ * Enough of a JSON tokenizer for request and response bodies, which beats
  * pulling in a syntax highlighter for the four languages we show. Splits on
  * strings first so a brace inside a string is never mistaken for punctuation.
  *
- * Every colour below clears 4.5:1 against --navy.
+ * Every color below clears 4.5:1 against --navy.
  */
 const JSON_TOKEN = /("(?:\\.|[^"\\])*"\s*:?|\b(?:true|false|null)\b|-?\d+(?:\.\d+)?)/g;
 

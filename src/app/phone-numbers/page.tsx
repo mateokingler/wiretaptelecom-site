@@ -41,7 +41,7 @@ const numberFeatures: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: MapPinnedIcon,
     title: "Inventory almost everywhere",
-    body: "Numbers from every LATA and virtually every area code in the United States. Search a rate centre, take a single number or a contiguous block of hundreds, and keep the run intact for the departments that need it.",
+    body: "Numbers from every LATA and virtually every area code in the United States. Search a rate center, take a single number or a contiguous block of hundreds, and keep the run intact for the departments that need it.",
   },
   {
     icon: ZapIcon,
@@ -61,7 +61,7 @@ const numberFeatures: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: ShieldCheckIcon,
     title: "Nobody walks off with them",
-    body: "Set a blanket port-out PIN across the account or a unique PIN per number, so a number cannot leave without the authorisation you control. Slamming and social-engineered ports stop at the PIN.",
+    body: "Set a blanket port-out PIN across the account or a unique PIN per number, so a number cannot leave without the authorization you control. Slamming and social-engineered ports stop at the PIN.",
   },
   {
     icon: PhoneForwardedIcon,
@@ -147,7 +147,7 @@ const products: Product[] = [
       "The day-to-day settings behind your numbers, all of them self-service in the portal.",
     points: [
       "Set the billing telephone number for the account",
-      "Default area code for extension-length dialling",
+      "Default area code for extension-length dialing",
       "Default inbound prefix on the digits you receive",
     ],
     link: { href: "/docs/manage-your-btn", label: "Manage your BTN" },
@@ -235,7 +235,7 @@ const faqs = [
   },
   {
     q: "What stops someone porting my numbers away?",
-    a: "Port-out PIN protection. You can set a blanket PIN across the account or a unique PIN for each individual number, so no number leaves without the authorisation you control. It is the practical defence against both accidental ports and deliberate slamming.",
+    a: "Port-out PIN protection. You can set a blanket PIN across the account or a unique PIN for each individual number, so no number leaves without the authorization you control. It is the practical defense against both accidental ports and deliberate slamming.",
   },
   {
     q: "Can I get an 800 number or a vanity number?",
@@ -269,7 +269,7 @@ export default function Page() {
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
                 Local and toll-free numbers from every LATA and virtually every US area
                 code. Buy one or a contiguous block of a thousand, put them on a trunk
-                straight away, and bring the numbers you already have with you.
+                right away, and bring the numbers you already have with you.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">

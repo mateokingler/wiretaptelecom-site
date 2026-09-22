@@ -47,7 +47,7 @@ const features: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: GaugeIcon,
     title: "Calls that hand off cleanly",
-    body: "We sit in the same data centres as the mobile network operators, so your calls reach them over direct interconnects instead of transiting a chain of wholesalers. Fewer hops is fewer places for a call to arrive late or not at all.",
+    body: "We sit in the same data centers as the mobile network operators, so your calls reach them over direct interconnects instead of transiting a chain of wholesalers. Fewer hops is fewer places for a call to arrive late or not at all.",
   },
   {
     icon: LayoutDashboardIcon,
@@ -334,7 +334,7 @@ export default function Page() {
               Only the parts you actually use.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Nothing here is bundled into a seat licence. Take the trunk on its own, or
+              Nothing here is bundled into a seat license. Take the trunk on its own, or
               put texting and fax on the same numbers and the same invoice.
             </p>
           </div>

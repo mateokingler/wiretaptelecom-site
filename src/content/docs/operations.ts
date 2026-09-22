@@ -111,7 +111,7 @@ export const emergencyArticles: DocArticle[] = [
       { kind: "heading", text: "What NG911 is" },
       {
         kind: "text",
-        body: "Next Generation 911 is a nationwide programme to move the 911 system onto IP-based infrastructure. Beyond voice calls, it allows text messages, images, video, and other data to reach 911 centres, which gives emergency services more to work with.",
+        body: "Next Generation 911 is a nationwide program to move the 911 system onto IP-based infrastructure. Beyond voice calls, it allows text messages, images, video, and other data to reach 911 centers, which gives emergency services more to work with.",
       },
       {
         kind: "fields",
@@ -123,18 +123,18 @@ export const emergencyArticles: DocArticle[] = [
           },
           { term: "Security", description: "Protects the integrity of emergency communications." },
           {
-            term: "Standardisation",
+            term: "Standardization",
             description: "Commonly accepted standards for consistent, reliable communication.",
           },
           {
             term: "Enhanced data handling",
             description:
-              "Emergency communication centres can receive, process, and analyse all types of 911 request, and fold in additional useful information.",
+              "Emergency communication centers can receive, process, and analyze all types of 911 request, and fold in additional useful information.",
           },
           {
             term: "Information sharing",
             description:
-              "Request-related information can be shared between centres and response providers.",
+              "Request-related information can be shared between centers and response providers.",
           },
         ],
       },
@@ -177,7 +177,7 @@ export const complianceArticles: DocArticle[] = [
     blocks: [
       {
         kind: "text",
-        body: "Wiretap Telecom is a registered carrier in the Robocall Mitigation Database under RMD0001594. STIR/SHAKEN is the set of standards that authenticates caller ID and cuts down fraudulent robocalls, and our signing behaviour under it directly affects whether your calls get answered.",
+        body: "Wiretap Telecom is a registered carrier in the Robocall Mitigation Database under RMD0001594. STIR/SHAKEN is the set of standards that authenticates caller ID and cuts down fraudulent robocalls, and our signing behavior under it directly affects whether your calls get answered.",
       },
       { kind: "heading", text: "What attestation means" },
       {
@@ -243,7 +243,7 @@ export const complianceArticles: DocArticle[] = [
       { kind: "heading", text: "Where to aim" },
       {
         kind: "text",
-        body: "STIR/SHAKEN is not optional any more; it determines whether your calls actually arrive. Whether you manage your own certificates or partner with us through the KYC shared-customer programme, moving toward Level A and B attestation is the most effective way to protect your reputation and improve call completion.",
+        body: "STIR/SHAKEN is not optional anymore; it determines whether your calls actually arrive. Whether you manage your own certificates or partner with us through the KYC shared-customer program, moving toward Level A and B attestation is the most effective way to protect your reputation and improve call completion.",
       },
     ],
   },
@@ -289,11 +289,11 @@ export const supportArticles: DocArticle[] = [
         kind: "fields",
         items: [
           { term: "Caller's number", description: "The number that placed the call." },
-          { term: "Called number", description: "The number that was dialled." },
+          { term: "Called number", description: "The number that was dialed." },
           { term: "Date and time", description: "When the call was attempted." },
           {
             term: "Call treatment",
-            description: "What actually happened — busy, dead air, could not be completed as dialled.",
+            description: "What actually happened — busy, dead air, could not be completed as dialed.",
           },
         ],
       },

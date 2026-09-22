@@ -30,10 +30,10 @@ export const trunkingArticles: DocArticle[] = [
         title: "Do the firewall work first",
         body: "If you flip the trunk version before your firewall allows the v2 endpoints, calls will stop. Complete the first step below before you touch the portal.",
       },
-      { kind: "heading", text: "Allow signalling from the v2 SBCs" },
+      { kind: "heading", text: "Allow signaling from the v2 SBCs" },
       {
         kind: "text",
-        body: "Permit SIP signalling on port `5060` from each of these v2 endpoints.",
+        body: "Permit SIP signaling on port `5060` from each of these v2 endpoints.",
       },
       {
         kind: "table",

@@ -137,7 +137,7 @@ export const pbxArticles: DocArticle[] = [
         items: [
           "Go to **Connectivity → Trunks** and select **Add SIP (chan_pjsip) Trunk**.",
           "On the **General** tab, name the trunk and set the outbound caller ID.",
-          "Open the **pjsip Settings** tab and set your dialled number manipulation rules. The **Dial Patterns Wizard** will generate sensible US patterns for you.",
+          "Open the **pjsip Settings** tab and set your dialed number manipulation rules. The **Dial Patterns Wizard** will generate sensible US patterns for you.",
           "Still on **pjsip Settings → General**, fill in the connection details below.",
         ],
       },
@@ -184,7 +184,7 @@ export const pbxArticles: DocArticle[] = [
     blocks: [
       {
         kind: "text",
-        body: "This is the IP-authenticated version of the FreePBX 17 setup. There are no registration credentials to manage; we recognise your PBX by its address. If you would rather register, use the [registration trunk guide](/docs/configuring-your-trunk-with-freepbx-17-registration).",
+        body: "This is the IP-authenticated version of the FreePBX 17 setup. There are no registration credentials to manage; we recognize your PBX by its address. If you would rather register, use the [registration trunk guide](/docs/configuring-your-trunk-with-freepbx-17-registration).",
       },
       { kind: "heading", text: "Before you start" },
       {
@@ -209,7 +209,7 @@ export const pbxArticles: DocArticle[] = [
         items: [
           "Go to **Connectivity → Trunks** and select **Add SIP (chan_pjsip) Trunk**.",
           "On the **General** tab, name the trunk and set the outbound caller ID.",
-          "Open the **pjsip Settings** tab and set your dialled number manipulation rules. The **Dial Patterns Wizard** will generate sensible US patterns for you.",
+          "Open the **pjsip Settings** tab and set your dialed number manipulation rules. The **Dial Patterns Wizard** will generate sensible US patterns for you.",
           "Still on **pjsip Settings → General**, fill in the connection details below.",
         ],
       },
@@ -329,7 +329,7 @@ export const pbxArticles: DocArticle[] = [
       { kind: "heading", text: "Configure an outbound route" },
       {
         kind: "text",
-        body: "Go to **Call Control → Outbound Route** and click **Add**. Outbound routes are evaluated from top to bottom: the system compares the dialled number against the first route's pattern, and if it does not match, moves to the next.",
+        body: "Go to **Call Control → Outbound Route** and click **Add**. Outbound routes are evaluated from top to bottom: the system compares the dialed number against the first route's pattern, and if it does not match, moves to the next.",
       },
       {
         kind: "fields",

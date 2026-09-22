@@ -31,7 +31,7 @@ const faxes: Fax[] = [
     stages: [
       { at: 0, label: "Queued from fax@core-fax.com", tone: "idle" },
       { at: 700, label: "Cover page merged into one document", tone: "busy" },
-      { at: 1600, label: "Dialling the destination", tone: "busy" },
+      { at: 1600, label: "Dialing the destination", tone: "busy" },
       { at: 2600, label: "Transmitting over T.38", tone: "busy" },
       { at: 5200, label: "Delivered, confirmation emailed", tone: "done" },
     ],
@@ -44,7 +44,7 @@ const faxes: Fax[] = [
     stages: [
       { at: 400, label: "Queued from the portal", tone: "idle" },
       { at: 1100, label: "Converted to fax format", tone: "busy" },
-      { at: 2000, label: "Dialling the destination", tone: "busy" },
+      { at: 2000, label: "Dialing the destination", tone: "busy" },
       { at: 3400, label: "Far end did not answer on route A", tone: "warn" },
       { at: 4300, label: "Retrying on route B", tone: "warn" },
       { at: 5600, label: "Transmitting over T.38", tone: "busy" },

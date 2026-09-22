@@ -56,7 +56,7 @@ const pillars = [
     icon: GaugeIcon,
     title: "Scale without rebuying",
     description:
-      "Add call paths, numbers, and client accounts as you win them. Move the account between metered and unmetered whenever the maths changes.",
+      "Add call paths, numbers, and client accounts as you win them. Move the account between metered and unmetered whenever the math changes.",
   },
   {
     icon: ShieldCheckIcon,

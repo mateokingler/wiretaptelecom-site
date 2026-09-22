@@ -25,7 +25,7 @@ export const messagingArticles: DocArticle[] = [
         items: [
           {
             term: "Brands",
-            description: "The organisation sending the messages — you, or your end customer.",
+            description: "The organization sending the messages — you, or your end customer.",
           },
           {
             term: "The Campaign Registry (TCR)",
@@ -87,7 +87,7 @@ export const messagingArticles: DocArticle[] = [
     blocks: [
       {
         kind: "text",
-        body: "Registration has two parts: the brand, which is the organisation sending messages, and the campaign, which is the specific use case. Accurate and consistent information across both is what keeps you out of the rejection queue.",
+        body: "Registration has two parts: the brand, which is the organization sending messages, and the campaign, which is the specific use case. Accurate and consistent information across both is what keeps you out of the rejection queue.",
       },
       { kind: "heading", text: "Brand" },
       {
@@ -121,7 +121,7 @@ export const messagingArticles: DocArticle[] = [
       { kind: "subheading", text: "Call-to-action and message flow" },
       {
         kind: "text",
-        body: "This field explains how consumers opt in and give consent. A call-to-action is an invitation to opt in, and it has to state the programme's purpose plainly. If you support several opt-in methods, list them all. Nothing here may be deceptive, and opt-in details cannot be buried in terms and conditions.",
+        body: "This field explains how consumers opt in and give consent. A call-to-action is an invitation to opt in, and it has to state the program's purpose plainly. If you support several opt-in methods, list them all. Nothing here may be deceptive, and opt-in details cannot be buried in terms and conditions.",
       },
       {
         kind: "list",
@@ -331,7 +331,7 @@ export const messagingArticles: DocArticle[] = [
           ],
           [
             "Direct lending inconsistent with website",
-            "Your site mentions lending or loan arrangements but you did not tick the box. Tick it and resubmit.",
+            "Your site mentions lending or loan arrangements but you did not check the box. Check it and resubmit.",
           ],
           [
             "Disallowed content",

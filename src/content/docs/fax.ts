@@ -33,7 +33,7 @@ export const faxArticles: DocArticle[] = [
           "Maximum email size to Core-Fax is **40MB**. Most clients and servers cap well below that. For larger files, use portal faxing below.",
         ],
       },
-      { kind: "heading", text: "How Core-Fax is organised" },
+      { kind: "heading", text: "How Core-Fax is organized" },
       {
         kind: "fields",
         items: [
@@ -136,7 +136,7 @@ export const faxArticles: DocArticle[] = [
       },
       {
         kind: "text",
-        body: "Core-Fax recognises a cover page by filename, case insensitive:",
+        body: "Core-Fax recognizes a cover page by filename, case insensitive:",
       },
       {
         kind: "list",
@@ -172,7 +172,7 @@ export const faxArticles: DocArticle[] = [
       },
       {
         kind: "text",
-        body: "Hybrid is a number handling both voice and fax. Core-Fax numbers default to hybrid; to confirm, check that **Dedicated Fax Number** is unticked. On hybrid, our switches answer every inbound call for about five seconds, send it to Core-Fax if fax tone is detected, and otherwise take the voice route.",
+        body: "Hybrid is a number handling both voice and fax. Core-Fax numbers default to hybrid; to confirm, check that **Dedicated Fax Number** is unchecked. On hybrid, our switches answer every inbound call for about five seconds, send it to Core-Fax if fax tone is detected, and otherwise take the voice route.",
       },
       {
         kind: "note",

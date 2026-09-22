@@ -226,7 +226,7 @@
   }
 }
 
-/* Soft colour wash behind dark sections, built from the logo blue. */
+/* Soft color wash behind dark sections, built from the logo blue. */
 @utility aurora {
   background-image:
     radial-gradient(64rem 40rem at 6% -4%, color-mix(in oklab, var(--brand-sky) 65%, transparent), transparent 66%),

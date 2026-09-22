@@ -81,7 +81,7 @@ const out = `/**
  * simplified, then projected with d3-geo's Albers conic and fitted to the
  * viewBox below. Alaska, Hawaii, and the territories are excluded: we sell the
  * lower 48. Coordinates are screen space, already projected, so no geographic
- * maths ships to the browser.
+ * math ships to the browser.
  */
 
 export const MAP_WIDTH = ${WIDTH};

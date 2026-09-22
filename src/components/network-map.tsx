@@ -24,7 +24,7 @@ function arcPath(x1: number, y1: number, x2: number, y2: number) {
   const mx = (x1 + x2) / 2;
   const my = (y1 + y2) / 2;
   const lift = distance(x1, y1, x2, y2) * 0.22;
-  // Perpendicular to the chord, normalised, so the bow is always "above" it.
+  // Perpendicular to the chord, normalized, so the bow is always "above" it.
   const nx = -(y2 - y1);
   const ny = x2 - x1;
   const length = Math.hypot(nx, ny) || 1;

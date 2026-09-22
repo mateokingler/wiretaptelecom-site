@@ -130,7 +130,7 @@ export default function Page() {
               </h2>
               <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
                 Every missing detail costs a round trip. Include your account number, and
-                for a call problem, the calling number, the number that was dialled, and
+                for a call problem, the calling number, the number that was dialed, and
                 roughly when it happened. The guide below lists what we need for call,
                 fax, and messaging issues.
               </p>

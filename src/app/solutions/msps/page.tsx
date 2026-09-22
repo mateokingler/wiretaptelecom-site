@@ -155,7 +155,7 @@ const faqs = [
   },
   {
     q: "Do I need a new approval every time I port a number or open an account?",
-    a: "No. The porting agreement is approved once, after which you can submit ports for any account you hold, with no letter of authorisation request each time. Account access works the same way — a client approves your access once and you can get into their account whenever you need to, using your own login.",
+    a: "No. The porting agreement is approved once, after which you can submit ports for any account you hold, with no letter of authorization request each time. Account access works the same way — a client approves your access once and you can get into their account whenever you need to, using your own login.",
   },
   {
     q: "What does it cost to take on another client?",

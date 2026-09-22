@@ -80,7 +80,7 @@ export function SiteFooter() {
       <div className="shell grid gap-12 py-20 lg:grid-cols-[1.2fr_3fr]">
         <div>
           <h2>
-            {/* The mark is grey and blue, both muddy on navy, so knock it out to white. */}
+            {/* The mark is gray and blue, both muddy on navy, so knock it out to white. */}
             <Image
               src="/brand/logo.webp"
               alt="Wiretap Telecom"

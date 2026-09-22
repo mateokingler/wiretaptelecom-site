@@ -38,7 +38,7 @@ export const numberArticles: DocArticle[] = [
           "On the Ports Management page, click the blue plus sign in the upper left.",
           "Enter the numbers to port. You can add up to 5,000 on a single order; more than one requires CSV format.",
           "Click **Verify** and wait for the portability grid to load.",
-          "Click **Create Port-In Order**, complete the detail fields, tick the authorisation box, and **Submit**.",
+          "Click **Create Port-In Order**, complete the detail fields, check the authorization box, and **Submit**.",
         ],
       },
       {
@@ -88,7 +88,7 @@ export const numberArticles: DocArticle[] = [
           {
             term: "Auth Name",
             description:
-              "Someone on the losing carrier's list of people authorised to change or close the account.",
+              "Someone on the losing carrier's list of people authorized to change or close the account.",
           },
           {
             term: "Auth Date",
@@ -130,8 +130,8 @@ export const numberArticles: DocArticle[] = [
       {
         kind: "note",
         tone: "warning",
-        title: "The authorising name has to match",
-        body: "If the name on the hand-signed LOA differs from the authoriser on the losing carrier account, the port will reject. This is the single most common reason toll free ports fail, and a new LOA can add days or weeks.",
+        title: "The authorizing name has to match",
+        body: "If the name on the hand-signed LOA differs from the authorizer on the losing carrier account, the port will reject. This is the single most common reason toll free ports fail, and a new LOA can add days or weeks.",
       },
       {
         kind: "text",
@@ -168,7 +168,7 @@ export const numberArticles: DocArticle[] = [
           {
             term: "FOC",
             description:
-              "The losing carrier has agreed a release date and time. Your numbers are pre-initialised on our network so you can set attributes, but they are not live until the port completes.",
+              "The losing carrier has agreed a release date and time. Your numbers are pre-initialized on our network so you can set attributes, but they are not live until the port completes.",
           },
           {
             term: "Complete",
@@ -187,7 +187,7 @@ export const numberArticles: DocArticle[] = [
           ["Incorrect PIN", "Yes"],
           ["Incorrect secondary address, such as a suite number", "Usually no"],
           ["Inactive or disconnected numbers on the port", "Yes"],
-          ["Invalid authorisation name", "Yes"],
+          ["Invalid authorization name", "Yes"],
         ],
       },
       {
@@ -196,14 +196,14 @@ export const numberArticles: DocArticle[] = [
         title: "At FOC, do not forget",
         body: "Assign a trunk to the numbers before the port completes, set caller IDs, dips, and E-911, and build the inbound routes on your PBX. If you use our ATA fax gateway, tell us at FOC so we can help provision.",
       },
-      { kind: "heading", text: "Updating or cancelling a port" },
+      { kind: "heading", text: "Updating or canceling a port" },
       {
         kind: "text",
         body: "Editing any field on an active port moves it to **Manual Support** and generates a port note, because a modified port has to be handled by hand. Try to only edit while the status is New, Exception, or Manual Support. Editing an order that is already in motion is rarely necessary.",
       },
       {
         kind: "text",
-        body: "To cancel, open the port from the Ports Management page, scroll to **Cancel This Port-In Order**, and confirm. Who else has to agree depends on where the order has got to.",
+        body: "To cancel, open the port from the Ports Management page, scroll to **Cancel This Port-In Order**, and confirm. Who else has to agree depends on how far along the order is.",
       },
       {
         kind: "table",
@@ -219,7 +219,7 @@ export const numberArticles: DocArticle[] = [
       {
         kind: "note",
         tone: "warning",
-        title: "Cancelling at FOC costs money",
+        title: "Canceling at FOC costs money",
         body: "Porting fees already applied cannot be waived once the order reaches FOC. And if the FOC is inside roughly a 24-hour completion window, we may not be able to stop it at all.",
       },
       { kind: "heading", text: "Plan the cutover" },
@@ -243,7 +243,7 @@ export const numberArticles: DocArticle[] = [
           ["Assign Route As Number (DID transformation)", "Yes"],
           ["Assign failover trunk or failover number", "Yes"],
           ["Set up a number forward", "Yes"],
-          ["Optimise fax receiving, set dedicated fax number", "Yes"],
+          ["Optimize fax receiving, set dedicated fax number", "Yes"],
           ["Adjust port-out PIN and number status", "Yes"],
           ["Change the FOC'd number to your BTN", "No"],
           ["Disconnect the number", "No"],
@@ -299,7 +299,7 @@ export const numberArticles: DocArticle[] = [
           {
             term: "PIN",
             description:
-              "An optional port-out PIN set by the customer or assigned by the carrier, to stop numbers moving without authorisation.",
+              "An optional port-out PIN set by the customer or assigned by the carrier, to stop numbers moving without authorization.",
           },
           {
             term: "LOA",
@@ -343,14 +343,14 @@ export const numberArticles: DocArticle[] = [
               "Tier refers to pricing. You can find your tier pricing in the billing dashboard of the portal.",
           },
           {
-            question: "I cancelled my port but was still charged. Why?",
+            question: "I canceled my port but was still charged. Why?",
             answer:
-              "A charge applies if the port was cancelled at FOC status. Once an order reaches FOC, porting charges are non-refundable.",
+              "A charge applies if the port was canceled at FOC status. Once an order reaches FOC, porting charges are non-refundable.",
           },
           {
             question: "Can I change my requested FOC date?",
             answer:
-              "Usually yes, but it is awkward and can cause the order to be cancelled. We recommend against modifying an FOC'd order; if you must, do it before the 48-hour porting window.",
+              "Usually yes, but it is awkward and can cause the order to be canceled. We recommend against modifying an FOC'd order; if you must, do it before the 48-hour porting window.",
           },
           {
             question: "Can I reverse a completed port?",
@@ -477,7 +477,7 @@ export const numberArticles: DocArticle[] = [
       {
         kind: "note",
         title: "What N/A means",
-        body: "Your account has no default area code, and seven-digit dialling will be rejected.",
+        body: "Your account has no default area code, and seven-digit dialing will be rejected.",
       },
       { kind: "heading", text: "Change it" },
       {

@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 /**
  * Official vendor marks at their published aspect ratios. Heights are tuned per
  * logo so the wordmarks read at the same optical size despite differing padding.
- * Every mark here is dark enough to sit on a light surface in full colour.
+ * Every mark here is dark enough to sit on a light surface in full color.
  */
 export const compatibleSystems = [
   { name: "3CX", src: "/brand/logos/3cx.svg", width: 239, height: 95, size: "h-6" },
@@ -36,7 +36,7 @@ export function logoSizes(logo: Logo, heightPx: number): string {
 }
 
 type LogoMarqueeProps = {
-  /** Tailwind colour for the marquee's fade edges, matching the section behind it. */
+  /** Tailwind color for the marquee's fade edges, matching the section behind it. */
   fadeClassName?: string;
 };
 

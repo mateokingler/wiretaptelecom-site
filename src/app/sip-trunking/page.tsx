@@ -62,7 +62,7 @@ const trunkFeatures: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: GaugeIcon,
     title: "Call quality you can hear",
-    body: "We sit in the same data centres as the mobile network operators, so calls hand off on direct interconnects instead of transiting a chain of wholesalers. Fewer hops, less latency, no reseller's leftovers.",
+    body: "We sit in the same data centers as the mobile network operators, so calls hand off on direct interconnects instead of transiting a chain of wholesalers. Fewer hops, less latency, no reseller's leftovers.",
   },
   {
     icon: LayersIcon,
@@ -155,14 +155,14 @@ const products: Product[] = [
     points: [
       "Bring your own SIP 2.0 ATA",
       "Migrate to and from trunking in a click",
-      "Keep the hardware, modernise the backbone",
+      "Keep the hardware, modernize the backbone",
     ],
   },
   {
     icon: ServerIcon,
     name: "PBX hosting",
     summary:
-      "We host the PBX in the same data centres as our switches, so it gets priority access to the carrier network.",
+      "We host the PBX in the same data centers as our switches, so it gets priority access to the carrier network.",
     points: [
       "Full access to the PBX and its server",
       "Choice of major PBX brands",
