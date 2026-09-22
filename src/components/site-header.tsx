@@ -84,6 +84,7 @@ const solutions: NavLink[] = [
 
 const resources = [
   { href: "/docs", title: "Docs", internal: true },
+  { href: "/developers", title: "API reference", internal: true },
   { href: "/blog", title: "Blog", internal: true },
   { href: "/status", title: "Network status", internal: true },
 ];

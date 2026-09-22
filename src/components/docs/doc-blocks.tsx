@@ -15,7 +15,8 @@ import { cn } from "@/lib/utils";
 // pieces can be mapped straight to elements.
 const INLINE = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\))/g;
 
-function renderInline(text: string) {
+/** Also used by the API reference tables, which carry the same three markers. */
+export function renderInline(text: string) {
   return text
     .split(INLINE)
     .filter(Boolean)

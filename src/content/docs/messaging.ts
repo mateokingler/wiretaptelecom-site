@@ -503,6 +503,10 @@ export const messagingArticles: DocArticle[] = [
         kind: "text",
         body: "Open the **Chats** tab in the 3CX mobile app and start sending.",
       },
+      {
+        kind: "text",
+        body: "The same key pair works against the [messaging API](/developers/messaging/send-sms) if you also want to send from your own software.",
+      },
     ],
   },
   {
@@ -559,6 +563,10 @@ export const messagingArticles: DocArticle[] = [
       {
         kind: "text",
         body: "In the [Wiretap Portal](https://portal.wiretaptelecom.com), hover your avatar in the top right, click **Company Settings**, then **API Keys**, and generate a new key or use an existing one. You will need both the auth token and the bearer token in the next step.",
+      },
+      {
+        kind: "text",
+        body: "That pair is the same one the [messaging API](/developers/messaging/send-sms) takes, if you also want to send from your own software.",
       },
       { kind: "heading", text: "Set up the message channel" },
       {

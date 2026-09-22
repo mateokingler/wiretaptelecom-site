@@ -28,7 +28,9 @@ function Tree({ articles, onNavigate }: Props & { onNavigate?: () => void }) {
         onClick={onNavigate}
         className={cn(
           "block rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
-          pathname === "/docs" ? "bg-tint-sky text-brand-blue" : "text-foreground hover:bg-muted"
+          pathname === "/docs"
+            ? "bg-tint-sky text-brand-blue-ink"
+            : "text-foreground hover:bg-muted"
         )}
       >
         All documentation
@@ -55,7 +57,7 @@ function Tree({ articles, onNavigate }: Props & { onNavigate?: () => void }) {
                         className={cn(
                           "block rounded-lg px-3 py-2 text-sm leading-snug transition-colors",
                           active
-                            ? "bg-tint-sky font-semibold text-brand-blue"
+                            ? "bg-tint-sky font-semibold text-brand-blue-ink"
                             : "text-muted-foreground hover:bg-muted hover:text-foreground"
                         )}
                       >

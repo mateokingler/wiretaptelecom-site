@@ -127,6 +127,7 @@ const products: Product[] = [
       "Delivery receipts returned on every send",
       "Inbound messages posted to your webhook",
     ],
+    doc: { href: "/developers/messaging/send-sms", label: "API reference" },
   },
   {
     icon: FileCheck2Icon,

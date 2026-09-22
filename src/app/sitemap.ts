@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { allOperations, operationHref } from "@/content/api";
 import { blogPosts } from "@/content/blog";
 import { docArticles } from "@/content/docs";
 import { siteUrl } from "@/lib/site";
@@ -22,6 +23,7 @@ const pages: Array<{
   { path: "/solutions/business", priority: 0.8, changeFrequency: "monthly" },
   { path: "/talk-to-sales", priority: 0.8, changeFrequency: "yearly" },
   { path: "/docs", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/developers", priority: 0.7, changeFrequency: "monthly" },
   { path: "/blog", priority: 0.7, changeFrequency: "weekly" },
   { path: "/support", priority: 0.6, changeFrequency: "monthly" },
   { path: "/status", priority: 0.3, changeFrequency: "daily" },
@@ -37,6 +39,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: builtAt,
       changeFrequency,
       priority,
+    })),
+    ...allOperations().map(({ service, operation }) => ({
+      url: `${siteUrl}${operationHref(service.id, operation.slug)}`,
+      lastModified: builtAt,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
     ...docArticles.map((article) => ({
       url: `${siteUrl}/docs/${article.slug}`,

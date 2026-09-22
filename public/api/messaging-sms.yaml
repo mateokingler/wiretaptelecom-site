@@ -1,0 +1,263 @@
+# Wiretap Telecom Messaging API.
+#
+# This file is the source of truth for the reference pages under /developers.
+# scripts/generate-openapi.mjs compiles it to src/content/api/*.generated.ts,
+# so edit here and re-run `npm run generate:api` — never edit the generated
+# module. It also sits under /public so customers can download the same file
+# the site renders from.
+openapi: 3.1.0
+
+info:
+  title: Messaging API
+  summary: Send SMS and MMS, and receive inbound messages on a webhook.
+  description: >-
+    Send text and picture messages from any number you have SMS-enabled in the
+    portal, and receive replies on a webhook you register against that number.
+    Requests carry two credentials, both issued from Company Settings → API
+    Keys in the [Wiretap Portal](https://portal.wiretaptelecom.com).
+  version: 1.0.0
+  contact:
+    name: Wiretap Telecom support
+    email: support@wiretaptelecom.com
+    url: https://wiretaptelecom.com/support
+
+servers:
+  - url: https://sms.wiretaptelecom.com/smsapis
+    description: Production
+
+# Both schemes are listed in a single requirement object, which is how OpenAPI
+# says "and" rather than "or". Every request needs the bearer token and the
+# auth token together.
+security:
+  - BearerAuth: []
+    ApiKeyQuery: []
+
+tags:
+  - name: Messages
+    description: Outbound SMS and MMS.
+
+paths:
+  /SendSMS:
+    post:
+      tags:
+        - Messages
+      operationId: SendSMS
+      summary: Send an SMS or MMS
+      description: >-
+        Sends one message to one or more mobile numbers. Supplying `mediaUrls`
+        turns the message into an MMS, which bills at the MMS rate. The sending
+        number has to be SMS-enabled under Core-SMS → Manage Numbers and covered
+        by a registered 10DLC campaign, or carriers will block the traffic.
+      requestBody:
+        description: The message to send.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SendSmsRequest"
+      responses:
+        "200":
+          description: >-
+            The gateway accepted the request. Read `schema.resultResponses` for
+            the outcome of each recipient, since one bad number does not fail
+            the whole batch.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SendSmsResponse"
+        "400":
+          description: >-
+            Bad input parameter, or credentials the gateway would not take. The
+            body is the same envelope as a success, with `success` false and a
+            `reason` naming the problem.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SendSmsError"
+
+webhooks:
+  inboundMessage:
+    post:
+      operationId: inboundMessage
+      summary: Inbound message
+      description: >-
+        We POST this body to the URL you register on a number in the portal,
+        under Core-SMS → Manage Numbers → Receive to Webhook API. The URL is set
+        per number, so different numbers can land in different systems. Return
+        200 to acknowledge the message.
+      requestBody:
+        description: The message that arrived on your number.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InboundMessage"
+      responses:
+        "200":
+          description: Your server returns this code if it accepts the callback.
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        The **Bearer Token** from Company Settings → API Keys, sent as
+        `Authorization: Bearer <token>`.
+    ApiKeyQuery:
+      type: apiKey
+      in: query
+      name: apikey
+      description: >-
+        The **Auth Token** from the same screen, sent as the `apikey` query
+        parameter. It is a distinct value from the bearer token.
+
+  schemas:
+    SendSmsRequest:
+      type: object
+      required:
+        - from
+        - to
+        - text
+      properties:
+        from:
+          type: string
+          description: >-
+            The number the message is sent from, in E.164 without the plus. It
+            must be SMS-enabled on your account.
+          example: "14055551234"
+        to:
+          type: array
+          description: >-
+            The numbers receiving the message, in E.164 without the plus.
+            Messages sent in any other format will not be delivered.
+          items:
+            type: string
+          example:
+            - "13055551234"
+            - "18135551234"
+        text:
+          type: string
+          description: The body of the message.
+          example: This is a test
+        mediaUrls:
+          type: array
+          description: >-
+            Publicly reachable URLs of the images to attach. Supplying this
+            field converts the message to an MMS, and additional messaging
+            rates apply.
+          items:
+            type: string
+          example:
+            - https://wiretaptelecom.com/assets/img/logo.png
+        referenceId:
+          type: string
+          description: >-
+            Your own id for the message. If you send one it is echoed back in
+            the response, which is how you tie a result to a record on your
+            side.
+          example: iosd84ndi9
+
+    SendSmsResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether the gateway accepted the request as a whole.
+          example: true
+        reason:
+          type: string
+          description: Short result code for the request.
+          example: SUCCESS
+        detail:
+          type: string
+          description: Longer description of the reason.
+          example: SUCCESS
+        schema:
+          $ref: "#/components/schemas/SendSmsResult"
+
+    SendSmsError:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: False on every rejected request.
+          example: false
+        reason:
+          type: string
+          description: Short code for what went wrong, such as `NOT_AUTHORIZED`.
+          example: NOT_AUTHORIZED
+        detail:
+          type: string
+          description: Longer description of the reason.
+          example: NOT_AUTHORIZED
+
+    SendSmsResult:
+      type: object
+      description: The message as the gateway recorded it, with a result per recipient.
+      properties:
+        referenceId:
+          type: string
+          description: >-
+            The id tracking the message. If you supplied one in the request it
+            repeats here.
+          example: h4Tk44ks21iR
+        from:
+          type: string
+          description: The number the message was sent from.
+          example: "14055551234"
+        text:
+          type: string
+          description: The body that was sent.
+          example: This is a test
+        resultResponses:
+          type: array
+          description: One entry per recipient.
+          items:
+            $ref: "#/components/schemas/RecipientResult"
+
+    RecipientResult:
+      type: object
+      properties:
+        to:
+          type: string
+          description: A number that received the message.
+          example: "13055551234"
+        status:
+          type: string
+          description: The outcome for that number.
+          example: SUCCESS
+
+    InboundMessage:
+      type: object
+      required:
+        - from
+        - to
+        - text
+      properties:
+        from:
+          type: string
+          description: The number that sent the message.
+          example: "14055551234"
+        to:
+          type: array
+          description: Your numbers that received it.
+          items:
+            type: string
+          example:
+            - "13055551234"
+        text:
+          type: string
+          description: The body of the message.
+          example: This is a test
+        mediaUrls:
+          type: array
+          description: URLs of any images attached to the message.
+          items:
+            type: string
+          example:
+            - https://wiretaptelecom.com/assets/img/logo.png
+        referenceId:
+          type: string
+          description: Our id for the message.
+          example: iosd84ndi9
