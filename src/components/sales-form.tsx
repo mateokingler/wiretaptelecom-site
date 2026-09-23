@@ -112,6 +112,27 @@ function validate(field: FieldName, raw: string): string | null {
   return null;
 }
 
+/**
+ * Tells the sales channel a lead is waiting in Zoho. Fire and forget, with
+ * keepalive so it still goes out when Zoho asks us to navigate away, and
+ * silent on failure: the visitor has already been served.
+ */
+function notifyTeam(values: Record<FieldName, string>) {
+  void fetch("/api/lead-alert", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      firstName: values["First Name"].trim(),
+      lastName: values["Last Name"].trim(),
+      company: values.Company.trim(),
+      email: values.Email.trim(),
+      phone: values.Phone.trim(),
+      source: window.location.pathname + window.location.search,
+    }),
+    keepalive: true,
+  }).catch(() => {});
+}
+
 export function SalesForm() {
   const form = useRef<HTMLFormElement>(null);
   const successHeading = useRef<HTMLHeadingElement>(null);
@@ -165,6 +186,18 @@ export function SalesForm() {
       const data = contentType.includes("application/json")
         ? await response.json()
         : await response.text();
+
+      // Zoho signals a rejected submission in the body rather than the status,
+      // so check both before announcing the lead. Covers the redirect branches
+      // below too, which leave this function before reaching the success state.
+      const rejected =
+        typeof data === "object" &&
+        data !== null &&
+        (data.invalidCaptcha === "true" ||
+          data.actionsubmit === "error_msg" ||
+          data.actionsubmit === "captcha_error");
+
+      if (response.ok && !rejected) notifyTeam(values);
 
       if (typeof data !== "object" || data === null) {
         setStatus("done");

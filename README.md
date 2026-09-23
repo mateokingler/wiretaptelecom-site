@@ -17,6 +17,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Environment
+
+Copy these into `.env.local` (gitignored) and set them on the host:
+
+| Variable | Purpose |
+| --- | --- |
+| `SLACK_WEBHOOK_URL` | Incoming webhook for `sales_alerts`. `/api/lead-alert` posts new website leads here after Zoho accepts them. Unset, the alert is logged instead of sent and the form still works. |
+
 ## Notes
 
 - Marked `noindex` while this is a redesign mock.
