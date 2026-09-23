@@ -38,7 +38,7 @@ const options: Option[] = [
     icon: LifeBuoyIcon,
     title: "Open a ticket",
     description:
-      "Send it to the help desk and track the reply. Best for anything that needs us to look at your account or a specific call.",
+      "Writing it up yourself is the fastest route to a fix, and the best one for anything that needs us to look at your account or a specific call.",
     action: "Go to the help desk",
     href: "https://helpdesk.wiretaptelecom.com",
     external: true,
@@ -47,7 +47,7 @@ const options: Option[] = [
     icon: PhoneIcon,
     title: "Call support",
     description:
-      "Prefer to talk it through? The support line reaches a US-based telecom specialist, not a tiered ticket queue.",
+      "A US-based telecom specialist answers and writes the ticket up for you. It joins the same queue, so calling adds a step rather than skipping one.",
     action: <PhoneNumber />,
     href: phoneHref,
     external: true,
@@ -99,8 +99,10 @@ export default function Page() {
                 Get unstuck, three ways.
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
-                Look it up yourself, open a ticket, or pick up the phone. Whichever you
-                choose, you are dealing with people who work on this network.
+                Look it up yourself, open a ticket, or pick up the phone. Every route
+                reaches the same people who work on this network, and everything that is
+                not in the docs becomes a ticket — so writing your own is the quickest
+                way through.
               </p>
             </div>
           </div>
@@ -131,8 +133,8 @@ export default function Page() {
               <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
                 Every missing detail costs a round trip. Include your account number, and
                 for a call problem, the calling number, the number that was dialed, and
-                roughly when it happened. The guide below lists what we need for call,
-                fax, and messaging issues.
+                roughly when it happened. The support ticket guide lists what we need for
+                call, fax, and messaging issues.
               </p>
             </div>
             <Link

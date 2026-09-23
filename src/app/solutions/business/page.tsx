@@ -47,7 +47,7 @@ const features: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: GaugeIcon,
     title: "Calls that hand off cleanly",
-    body: "We sit in the same data centers as the mobile network operators, so your calls reach them over direct interconnects instead of transiting a chain of wholesalers. Fewer hops is fewer places for a call to arrive late or not at all.",
+    body: "We sit in the same data centers as the PSTN backbone, so your calls reach it over direct interconnects instead of transiting a chain of wholesalers. Fewer hops is fewer places for a call to arrive late or not at all.",
   },
   {
     icon: LayoutDashboardIcon,
@@ -108,7 +108,7 @@ const products: Product[] = [
     name: "Phone numbers",
     summary:
       "Local numbers from every LATA and toll-free, live in seconds, or bring the ones you have.",
-    cost: "$1.99 local, $2.99 toll-free, $5 a port however many numbers",
+    cost: "$1.99 local, $2.99 toll-free, one-time fee to port in",
     href: "/phone-numbers",
   },
   {
@@ -140,7 +140,7 @@ const faqs = [
   },
   {
     q: "Can we keep our numbers?",
-    a: "Yes. Porting is $5 per port order rather than per number, so moving forty numbers costs the same as moving one. We handle the LOA, the losing carrier, and NPAC, and a porting specialist stays on the order rather than handing it to a queue. Once the numbers are here you can set a port-out PIN so nobody can take them from you the same way.",
+    a: "Yes. Porting carries a one-time fee per number, published on the pricing page, with volume pricing on larger blocks. We handle the LOA, the losing carrier, and NPAC, and a porting specialist stays on the order rather than handing it to a queue. Once the numbers are here you can set a port-out PIN so nobody can take them from you the same way.",
   },
   {
     q: "What will it actually cost?",
@@ -414,9 +414,10 @@ export default function Page() {
                 Send us the bill you pay now.
               </h2>
               <p className="mt-6 text-lg text-white/75">
-                We will price the same service at our published rates, stand up a free
-                test trunk against your PBX so you can hear the difference, and plan the
-                port around a date that suits you. None of that costs anything.
+                We will price the same service at our published rates, stand up a test
+                trunk against your PBX so you can hear the difference, and plan the port
+                around a date that suits you. No contract, no term, and no commitment
+                past the month you are in.
               </p>
               <div className="mt-10 flex justify-center">
                 <Button size="lg" render={<Link href="/talk-to-sales" />}>

@@ -54,7 +54,7 @@ const rates = [
 const faqs = [
   {
     q: "Do I have to sign a contract?",
-    a: "The metered plan has no monthly commitment, so you pay only for the minutes you use. Unmetered is billed per call path, per month.",
+    a: "The metered plan has no term, and you pay for the minutes you use above a $15.99 monthly minimum. Unmetered is billed per call path, per month.",
   },
   {
     q: "Can I keep my existing numbers?",

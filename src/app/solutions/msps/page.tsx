@@ -58,12 +58,12 @@ const features: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: ReceiptIcon,
     title: "Telecom tax, handled",
-    body: "When we bill your client, our billing system knows both your cost and your retail price. Tax is calculated on what they actually pay and appears on their invoice, so the filing is not your problem.",
+    body: "You set retail above our floor in P2Lite, so when we bill your client our system already holds both numbers. Tax is calculated on what they actually pay and appears on their invoice, so the filing is not your problem.",
   },
   {
     icon: KeyRoundIcon,
     title: "Approve access once, not per ticket",
-    body: "Approve the porting agreement a single time and you can submit ports for any account you hold. Once a client approves your access to their account, you are in from then on with your own credentials.",
+    body: "Approve the porting agreement a single time and you can submit ports for any account you hold. Once a client grants you access, their account joins your multi-account dashboard and you work in it with your own login, never a shared password.",
   },
   {
     icon: LayersIcon,
@@ -115,7 +115,7 @@ const products: Product[] = [
     name: "Phone numbers",
     summary:
       "Local and toll-free from every LATA, live within seconds, with port-out PIN protection.",
-    cost: "$1.99 local, $2.99 toll-free, $5 a port however many numbers",
+    cost: "$1.99 local, $2.99 toll-free, one-time fee to port in",
     href: "/phone-numbers",
   },
   {
@@ -424,8 +424,9 @@ export default function Page() {
               </h2>
               <p className="mt-6 text-lg text-white/75">
                 Send us what you pay for them today and we will price the same service at
-                our rates, stand up a free test trunk against their PBX, and walk you
-                through the partner console before you commit to anything.
+                our rates, stand up a test trunk against their PBX, and walk you through
+                the partner console. No contract and no term, so you can walk away after
+                the first invoice if it is not better than what you have.
               </p>
               <div className="mt-10 flex justify-center">
                 <Button size="lg" render={<Link href="/talk-to-sales" />}>

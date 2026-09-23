@@ -195,10 +195,10 @@ export const faxArticles: DocArticle[] = [
         title: "If no caller ID is found",
         body: "The fax goes out with a default caller ID of `0000000000`, and many receiving systems reject a malformed caller ID as spam.",
       },
-      { kind: "heading", text: "Fax-Tracker" },
+      { kind: "heading", text: "Fax-Tracker™" },
       {
         kind: "text",
-        body: "Fax-Tracker shows the in-transit status of inbound and outbound faxes in real time, updating without a page refresh within seconds of a fax starting. It is included free with Core-Fax. MSPs and customers with multiple accounts can watch every account's faxes consolidated in one console.",
+        body: "Fax-Tracker™ shows the in-transit status of inbound and outbound faxes in real time, updating without a page refresh within seconds of a fax starting. It is included free with Core-Fax. MSPs and customers with multiple accounts can watch every account's faxes consolidated in one console.",
       },
       { kind: "heading", text: "Faxing from the portal" },
       {

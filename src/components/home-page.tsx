@@ -11,7 +11,7 @@ import {
   ShieldCheckIcon,
   ZapIcon,
 } from "lucide-react";
-import { LogoMarquee, logoByName, logoSizes } from "@/components/logo-marquee";
+import { LogoMarquee, compatibleSystems, logoSizes } from "@/components/logo-marquee";
 import { phoneVanity } from "@/components/phone-link";
 import { BillEstimator } from "@/components/bill-estimator";
 import { HeroDemo } from "@/components/hero-demo";
@@ -35,14 +35,6 @@ const jobs = [
     detail: "See what completed, and what did not, from one place.",
   },
   { title: "Send SMS", detail: "Use the portal, Email2SMS, or the PBX integration." },
-];
-
-const pbx = [
-  { href: "/docs/configuring-your-trunk-with-3cx-v20", name: "3CX" },
-  { href: "/docs/configuring-your-trunk-with-freepbx-17-registration", name: "FreePBX" },
-  { href: "/docs/configuring-your-trunk-with-yeastar-p-series", name: "Yeastar" },
-  // No Asterisk-specific guide, so this goes to the generic trunk walkthrough.
-  { href: "/docs/creating-a-sip-trunk", name: "Asterisk" },
 ];
 
 const pillars = [
@@ -99,9 +91,9 @@ const rateCard = [
   { label: "Metered inbound", value: "$0.0036 / min" },
   { label: "Metered outbound", value: "$0.0054 / min" },
   { label: "Unmetered", value: "$23.99 / mo / call path" },
-  { label: "Outbound caller ID (CNAM)", value: "$0.99 / mo" },
+  { label: "Outbound caller ID (CNAM)", value: "$0.99 / mo / number" },
   { label: "Inbound caller ID (dip)", value: "$0.0031 / call" },
-  { label: "STIR/SHAKEN verification", value: "$0.0095 / call" },
+  { label: "STIR/SHAKEN verification", value: "$0.0095 / inbound call" },
   { label: "E-911", value: "$1.49 / location" },
   { label: "Inbound SMS and MMS", value: "Free" },
   { label: "Outbound SMS", value: "$0.0080 / message" },
@@ -230,7 +222,7 @@ const productTiles = [
     icon: PhoneCallIcon,
     title: "SIP trunking",
     description:
-      "Authenticate by IP or registration, set failover on a number, and start from a PBX template.",
+      "Authenticate by IP or registration, assign failover trunks and failover numbers, and start from an optional PBX template.",
     tint: "var(--tint-sky)",
     visual: <TrunkVisual />,
   },
@@ -248,7 +240,7 @@ const productTiles = [
     icon: MessageSquareIcon,
     title: "SMS and MMS",
     description:
-      "Send from the portal or Email2SMS, and register business traffic with 10DLC before it ships.",
+      "Send from the portal or from your favorite email client. You fill in one form and we file your 10DLC registration with TCR.",
     tint: "var(--tint-mist)",
     visual: <MessagingVisual />,
   },
@@ -277,9 +269,11 @@ export function HomePage() {
               <br />
               Human-grade support.
             </h1>
+            {/* The marquee directly below names the PBX brands, so this line spends its
+                words on the two ways in: our platform, or the one you already run. */}
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/75">
-              Trunking, numbers, messaging, and fax for MSPs and businesses running 3CX,
-              FreePBX, Yeastar, or any SIP PBX. One portal, one invoice, published rates.
+              Trunking, numbers, messaging, fax, and UCaaS for MSPs and businesses — bring
+              your own PBX or use ours. One portal, one invoice, published rates.
             </p>
             <div className="mt-9">
               <Button size="lg" render={<Link href="/talk-to-sales" />}>
@@ -363,9 +357,11 @@ export function HomePage() {
                   Built for the people who install it.
                 </h2>
                 <p className="mt-5 text-lg text-white/70">
-                  Not a reseller dashboard bolted onto someone else&apos;s carrier.
-                  Trunks, numbers, and logs live in one place, and a human answers the
-                  phone.
+                  <span className="font-semibold text-white">We are the carrier.</span>{" "}
+                  Not a reseller dashboard bolted onto someone else&apos;s network — the
+                  switches and the interconnects are ours. Trunks, numbers, and logs
+                  live in one place, and a human answers the phone and the help desk
+                  ticket.
                 </p>
               </div>
               <div className="mt-14 grid gap-10 border-t border-white/15 pt-12 md:grid-cols-3">
@@ -467,37 +463,30 @@ export function HomePage() {
               Works with the PBX you already have.
             </h2>
             <p className="mt-5 text-lg text-muted-foreground">
-              Templates and setup notes for the systems MSPs actually install.
+              Any PBX that speaks SIP connects. For the ones MSPs actually install we
+              publish templates and step-by-step setup notes.
             </p>
-            <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-              {pbx.map((item) => {
-                const logo = logoByName.get(item.name)!;
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="group flex min-h-40 flex-col justify-between rounded-[1.5rem] bg-muted p-6 ring-1 ring-navy/5 transition-colors hover:bg-tint-sky"
-                    >
-                      <span className="flex h-12 items-center">
-                        <Image
-                          src={logo.src}
-                          alt=""
-                          width={logo.width}
-                          height={logo.height}
-                          sizes={logoSizes(logo, 48)}
-                          unoptimized={logo.src.endsWith(".svg")}
-                          className="max-h-12 w-auto max-w-full object-contain"
-                        />
-                      </span>
-                      <span className="flex items-center gap-1.5 font-semibold">
-                        {item.name}
-                        <ArrowRightIcon className="size-4 text-brand-blue transition-transform duration-300 group-hover:translate-x-1" />
-                      </span>
-                    </Link>
-                  </li>
-                );
-              })}
+            <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
+              {compatibleSystems.map((system) => (
+                <li
+                  key={system.name}
+                  className="flex h-24 items-center justify-center rounded-2xl bg-card px-6 ring-1 ring-navy/8"
+                >
+                  <Image
+                    src={system.src}
+                    alt={`${system.name} logo`}
+                    width={system.width}
+                    height={system.height}
+                    sizes={logoSizes(system, 40)}
+                    unoptimized={system.src.endsWith(".svg")}
+                    className="max-h-10 w-auto max-w-full object-contain"
+                  />
+                </li>
+              ))}
             </ul>
+            <Button variant="outline" className="mt-8" render={<Link href="/docs" />}>
+              Read the setup guides
+            </Button>
           </div>
         </div>
       </section>
@@ -541,8 +530,8 @@ export function HomePage() {
               Ships with the service.
             </h2>
             <p className="mt-5 text-lg text-muted-foreground">
-              These are part of the offer, not a separate product line you get upsold
-              later.
+              These are part of your quoted offer, not a separate product line you get
+              upsold later.
             </p>
           </div>
           <dl className="grid gap-x-10 gap-y-8 sm:grid-cols-2">

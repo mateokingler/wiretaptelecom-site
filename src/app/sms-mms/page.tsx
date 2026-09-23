@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 const heroStats = [
-  { value: "Free", label: "Every inbound SMS and MMS" },
+  { value: "Free", label: "Inbound SMS and MMS on local numbers" },
   { value: "$0.0080", label: "Per outbound SMS message" },
   { value: "4 ways", label: "To send from one number" },
   { value: "10DLC", label: "Registration filed for you with TCR" },
@@ -63,7 +63,7 @@ const messagingFeatures: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: WalletIcon,
     title: "Replies cost nothing",
-    body: "Inbound SMS and MMS are free on both plans. A two-way conversation does not get more expensive because the customer answered you.",
+    body: "Inbound SMS and MMS on a local number are free on both plans. A two-way conversation does not get more expensive because the customer answered you.",
   },
   {
     icon: UsersIcon,
@@ -185,16 +185,24 @@ const plans = [
     name: "SMS",
     price: "$0.0080",
     unit: "per outbound message",
-    second: "Inbound SMS is free",
-    body: "Metered per message on the same invoice as your voice. No monthly minimum, and no per-number fee for turning messaging on.",
+    second: "Inbound is free on local numbers",
+    body: "Metered per message on the same invoice as your voice. No minimum spend, and no per-number fee — Core-SMS is one charge for the whole account.",
     featured: true,
   },
   {
     name: "MMS",
     price: "$0.0120",
     unit: "per outbound message",
-    second: "Inbound MMS is free",
+    second: "Inbound is free on local numbers",
     body: "Pictures, documents, and group messages, sent from the same registered numbers and billed the same way.",
+    featured: false,
+  },
+  {
+    name: "Toll-free",
+    price: "$0.0120",
+    unit: "per message, in or out",
+    second: "SMS and MMS, one rate",
+    body: "Texting on a toll-free number is billed in both directions, so inbound is not free here. Toll-free runs on its own carrier verification rather than 10DLC.",
     featured: false,
   },
 ];
@@ -222,7 +230,7 @@ const faqs = [
   },
   {
     q: "Am I billed for messages people send me?",
-    a: "No. Inbound SMS and MMS are free on both the metered and un-metered plans, and always have been. You are billed for what you send.",
+    a: "Not on a local number. Inbound SMS and MMS there are free on both the metered and un-metered plans, and always have been, so you are billed only for what you send. Toll-free numbers are the exception: messaging on them is billed in both directions at the rate above.",
   },
 ];
 
@@ -484,7 +492,7 @@ export default function Page() {
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-5 lg:grid-cols-2">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {plans.map((plan) => (
               <div
                 key={plan.name}
@@ -534,13 +542,18 @@ export default function Page() {
             ))}
           </div>
 
+          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            Core-SMS is $4.99 a month for the account. 10DLC costs $50 once to register
+            your brand and $5 a month per live campaign, both on the rate card.
+          </p>
+
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
             <Button render={<Link href="/pricing#estimator" />}>Estimate your bill</Button>
             <Link
               href="/pricing"
               className="group inline-flex items-center gap-1.5 font-semibold text-brand-blue"
             >
-              See every rate, including voice
+              See the full rate card, including voice
               <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>

@@ -32,14 +32,14 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "SIP trunking",
   description:
-    "SIP trunking for any PBX that speaks SIP. Connect by registration or IP peering, with quadruple redundancy across three regions, free voice failover, and metered rates from $0.0036 per minute.",
+    "SIP trunking for any PBX that speaks SIP. Connect by registration or IP peering, with five-way SBC redundancy across three regions, free voice failover, and metered rates from $0.0036 per minute.",
 };
 
 /** Regions come from the components published on our NOC status page. */
 const heroStats = [
   { value: "99.9%", label: "Uptime on the voice network" },
   { value: "3 regions", label: "Atlanta, Miami, and Kansas" },
-  { value: "4×", label: "Minimum redundancy per trunk" },
+  { value: "5×", label: "Minimum SBC redundancy per trunk" },
   { value: "$0", label: "Cost of failover, always" },
 ];
 
@@ -48,7 +48,7 @@ const connectModes = [
     icon: KeyRoundIcon,
     name: "SIP registration",
     tagline: "For dynamic IPs, NAT, and anything that moves.",
-    body: "Your PBX authenticates with credentials using cryptographic nonce algorithms. DNS SRV records and instant registration replication mean one registration buys you quadruple connectivity, and the portal confirms in real time that you are actually registered.",
+    body: "Your PBX authenticates with credentials using cryptographic nonce algorithms. DNS SRV records and instant registration replication mean one registration buys you all five SBCs, and the portal confirms in real time that you are actually registered.",
   },
   {
     icon: NetworkIcon,
@@ -62,12 +62,12 @@ const trunkFeatures: { icon: LucideIcon; title: string; body: string }[] = [
   {
     icon: GaugeIcon,
     title: "Call quality you can hear",
-    body: "We sit in the same data centers as the mobile network operators, so calls hand off on direct interconnects instead of transiting a chain of wholesalers. Fewer hops, less latency, no reseller's leftovers.",
+    body: "We sit in the same data centers as the PSTN backbone, so calls hand off on direct interconnects instead of transiting a chain of wholesalers. Fewer hops, less latency, no reseller's leftovers.",
   },
   {
     icon: LayersIcon,
-    title: "One trunk, any volume",
-    body: "A single trunk handles all your calls. Scale up for a busy season and back down afterwards without re-architecting anything or renegotiating a contract.",
+    title: "Trunks cost nothing",
+    body: "A trunk is a pipe, not a call path, so one carries as many simultaneous calls as you need. Run one per PBX, site, or client at no extra charge — you pay for minutes or call paths, never for the trunk itself.",
   },
   {
     icon: PlugZapIcon,
@@ -99,7 +99,7 @@ const failoverPoints = [
   },
   {
     title: "Blended strategies",
-    body: "Give one number both a failover trunk and a failover forward, for a fallback behind the fallback.",
+    body: "Set both a failover trunk and a failover number on the same DID, for a fallback behind the fallback.",
   },
 ];
 
@@ -130,7 +130,7 @@ const products: Product[] = [
     summary:
       "Automatic rerouting when a circuit, a site, or the power goes down. Free on every account, permanently.",
     points: [
-      "Automatic trunk and forward failover",
+      "Failover trunks and failover numbers",
       "Automatic recovery, no levers to pull",
       "Never billed for backup trunks",
     ],
@@ -165,7 +165,7 @@ const products: Product[] = [
       "We host the PBX in the same data centers as our switches, so it gets priority access to the carrier network.",
     points: [
       "Full access to the PBX and its server",
-      "Choice of major PBX brands",
+      "No hardware to buy, rack, or replace",
       "Free data export if you move on-premise",
     ],
   },
@@ -216,7 +216,7 @@ const faqs = [
   },
   {
     q: "What does failover cost?",
-    a: "Nothing. Backup trunks and failover forwarding have always been free and will stay that way. You are not billed for a standby trunk, and you are not billed extra when it carries your calls.",
+    a: "Nothing. Failover trunks and failover numbers have always been free and will stay that way. You are not billed for a standby trunk, and you are not billed extra when it carries your calls.",
   },
   {
     q: "How is E911 billed?",
@@ -547,7 +547,7 @@ export default function Page() {
               href="/pricing"
               className="group inline-flex items-center gap-1.5 font-semibold text-brand-blue"
             >
-              See every rate, including add-ons
+              See the full rate card, including add-ons
               <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>

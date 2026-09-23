@@ -29,7 +29,7 @@ const phases: Phase[] = [
     ported: 0,
     routes: 0,
     answered: 0,
-    caption: "A free trunk, built beside the carrier you are still paying",
+    caption: "A new trunk, built beside the carrier you are still paying",
     hold: 1700,
   },
   {

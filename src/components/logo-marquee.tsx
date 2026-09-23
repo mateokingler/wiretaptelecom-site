@@ -18,6 +18,10 @@ export const compatibleSystems = [
   { name: "Yeastar", src: "/brand/logos/yeastar.svg", width: 380, height: 113, size: "h-8" },
   { name: "Asterisk", src: "/brand/logos/asterisk.png", width: 400, height: 400, size: "h-10" },
   { name: "Grandstream", src: "/brand/logos/grandstream.png", width: 300, height: 43, size: "h-6" },
+  { name: "Vodia", src: "/brand/logos/vodia.svg", width: 300, height: 147, size: "h-8" },
+  { name: "VitalPBX", src: "/brand/logos/vitalpbx.png", width: 414, height: 113, size: "h-7" },
+  { name: "NEC", src: "/brand/logos/nec.svg", width: 302, height: 82, size: "h-6" },
+  { name: "FreeSWITCH", src: "/brand/logos/freeswitch.png", width: 207, height: 56, size: "h-7" },
 ];
 
 export const logoByName = new Map(

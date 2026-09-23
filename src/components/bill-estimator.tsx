@@ -14,10 +14,14 @@ const RATES = {
   unmeteredPerPath: 23.99,
   meteredInbound: 0.0036,
   meteredOutbound: 0.0054,
-  // Inbound messaging is free, so only outbound needs a rate.
+  // Inbound is free on the local numbers this estimator prices, so only outbound
+  // needs a rate. Toll-free messaging bills both ways and is excluded below.
   outboundSms: 0.008,
   outboundMms: 0.012,
   localNumber: 1.99,
+  // A light month on metered still bills this much, so the estimate is floored
+  // to it rather than showing a total nobody would ever be charged.
+  meteredMinimum: 15.99,
 };
 
 const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
@@ -73,7 +77,9 @@ export function BillEstimator() {
   const addOns =
     numbers * RATES.localNumber + sms * RATES.outboundSms + mms * RATES.outboundMms;
 
-  const meteredTotal = meteredVoice + addOns;
+  const meteredUsage = meteredVoice + addOns;
+  const meteredShortfall = Math.max(RATES.meteredMinimum - meteredUsage, 0);
+  const meteredTotal = meteredUsage + meteredShortfall;
   const unmeteredTotal = unmeteredVoice + addOns;
   const meteredWins = meteredTotal <= unmeteredTotal;
   const savings = Math.abs(meteredTotal - unmeteredTotal);
@@ -172,7 +178,7 @@ export function BillEstimator() {
           />
           <Slider
             label="Outbound SMS"
-            hint="$0.0080 per message sent. Messages you receive are free."
+            hint="$0.0080 per message sent. Messages you receive on a local number are free."
             value={sms}
             min={0}
             max={25000}
@@ -255,6 +261,14 @@ export function BillEstimator() {
             <dt className="text-white/65">STIR/SHAKEN signing</dt>
             <dd className="ml-auto shrink-0 font-semibold text-primary">Included</dd>
           </div>
+          {meteredWins && meteredShortfall > 0 && (
+            <div className="flex items-baseline gap-4">
+              <dt className="text-white/65">Top-up to the $15.99 minimum</dt>
+              <dd className="ml-auto shrink-0 font-mono tabular-nums">
+                {usd.format(meteredShortfall)}
+              </dd>
+            </div>
+          )}
         </dl>
 
         <div className="mt-6 flex items-baseline gap-4 border-t border-white/15 pt-5">
@@ -266,8 +280,9 @@ export function BillEstimator() {
 
         <p className="mt-4 text-xs leading-relaxed text-white/50">
           Estimate only, using published rates for domestic voice across the continental
-          US. Taxes, regulatory fees, toll-free calling, and one-time porting are not
-          included.{" "}
+          US. Metered accounts carry a $15.99 monthly minimum, so a quiet month bills at
+          least that much. Taxes, regulatory fees, toll-free calling and messaging, and
+          one-time porting are not included.{" "}
           <Link href="/pricing" className="underline underline-offset-2 hover:text-white">
             See the full rate card
           </Link>

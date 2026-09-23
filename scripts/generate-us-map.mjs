@@ -47,32 +47,55 @@ const project = ([lon, lat]) => {
 };
 
 // Regions match the components published on status.wiretaptelecom.com.
+//
+// ATL1 and ATL2 are separate buildings a few miles apart. At this scale a mile
+// is a quarter of a pixel, so their true positions land inside a single marker.
+// `nudge` pushes the pair apart in screen space, symmetrically about the real
+// coordinate, so the map shows two facilities without relocating either city.
 const pops = [
-  { id: "atl", city: "Atlanta", label: "ATL1 · ATL2", nodes: 2, at: [-84.388, 33.749] },
-  { id: "mia", city: "Miami", label: "MIA", nodes: 1, at: [-80.191, 25.761] },
-  { id: "kan", city: "Kansas City", label: "KAN", nodes: 1, at: [-94.578, 39.1] },
+  {
+    id: "atl1",
+    region: "atl",
+    city: "Atlanta",
+    label: "ATL1",
+    at: [-84.388, 33.749],
+    nudge: [-13, -7],
+  },
+  {
+    id: "atl2",
+    region: "atl",
+    city: "Atlanta",
+    label: "ATL2",
+    labelBelow: true,
+    at: [-84.388, 33.749],
+    nudge: [13, 7],
+  },
+  { id: "mia", region: "mia", city: "Miami", label: "MIA", at: [-80.191, 25.761] },
+  { id: "kan", region: "kan", city: "Kansas City", label: "KAN", at: [-94.578, 39.1] },
 ];
 
 const origins = [
   { city: "Seattle, WA", at: [-122.332, 47.606], pop: "kan" },
-  { city: "Boston, MA", at: [-71.058, 42.36], pop: "atl" },
+  { city: "Boston, MA", at: [-71.058, 42.36], pop: "atl2" },
   { city: "Los Angeles, CA", at: [-118.243, 34.052], pop: "kan" },
   { city: "Tampa, FL", at: [-82.458, 27.947], pop: "mia" },
   { city: "Denver, CO", at: [-104.99, 39.739], pop: "kan" },
-  { city: "Charlotte, NC", at: [-80.843, 35.227], pop: "atl" },
+  { city: "Charlotte, NC", at: [-80.843, 35.227], pop: "atl2" },
   { city: "Austin, TX", at: [-97.743, 30.267], pop: "kan" },
-  { city: "Columbus, OH", at: [-82.999, 39.961], pop: "atl" },
+  { city: "Columbus, OH", at: [-82.999, 39.961], pop: "atl1" },
 ];
 
 const fmt = (list) =>
   list
     .map((item) => {
-      const [x, y] = project(item.at);
+      const [px, py] = project(item.at);
+      const [dx, dy] = item.nudge ?? [0, 0];
       const rest = Object.entries(item)
-        .filter(([k]) => k !== "at")
+        .filter(([k]) => k !== "at" && k !== "nudge")
         .map(([k, v]) => `${k}: ${JSON.stringify(v)}`)
         .join(", ");
-      return `  { ${rest}, x: ${x}, y: ${y} },`;
+      const round = (n) => Number(n.toFixed(1));
+      return `  { ${rest}, x: ${round(px + dx)}, y: ${round(py + dy)} },`;
     })
     .join("\n");
 
@@ -97,9 +120,12 @@ export const US_STATES =
 
 export type Pop = {
   id: string;
+  /** Facilities sharing a region fail over to another region, not to each other. */
+  region: string;
   city: string;
   label: string;
-  nodes: number;
+  /** Set where a neighboring marker's label would otherwise collide. */
+  labelBelow?: boolean;
   x: number;
   y: number;
 };

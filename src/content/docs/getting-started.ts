@@ -202,7 +202,7 @@ export const gettingStartedArticles: DocArticle[] = [
       },
       {
         kind: "text",
-        body: "Our Core-MSP partner program removes the need for a CSR in the call path, which cuts out redundant technology, extra call hops, and the outages that come with them. We run a minimum of quadruple redundancy plus full geographic redundancy, in data centers inside the United States. We have been operating since November 2012, are debt free, and do not enter commercial agreements with PBX manufacturers or other CSPs.",
+        body: "Our Core-MSP partner program removes the need for a CSR in the call path, which cuts out redundant technology, extra call hops, and the outages that come with them. We run a minimum of five-way SBC redundancy plus full geographic redundancy, in data centers inside the United States. We have been operating since November 2012, are debt free, and do not enter commercial agreements with PBX manufacturers or other CSPs.",
       },
     ],
   },

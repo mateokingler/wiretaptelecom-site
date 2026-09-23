@@ -85,6 +85,7 @@ const products: Product[] = [
     summary:
       "Ordinary ten-digit local numbers at $1.99 a month, from inventory covering every LATA and virtually every area code.",
     points: [
+      "Issued under our own FCC numbering authorization",
       "Local presence in the markets you sell into",
       "Contiguous runs for departments and DID blocks",
       "Flat inbound per-minute rate, no surprises",
@@ -97,7 +98,9 @@ const products: Product[] = [
     summary:
       "Nationwide toll-free at $2.99 a month, live on your trunk about a minute after you click buy.",
     points: [
+      "We are the RespOrg of record on every one",
       "800, 833, 844, 855, 866, 877, and 888 prefixes",
+      "$0.015 a minute inbound, outbound free",
       "Vanity numbers when inventory allows it",
       "Toll-free caller ID for voice, fax, and messaging",
     ],
@@ -131,8 +134,8 @@ const products: Product[] = [
     summary:
       "Bring the numbers your customers already dial, with a named porting expert on the submission from day one.",
     points: [
-      "$5 per port order, not per number",
-      "One-page RESPORG form for toll-free ports",
+      "One-time porting fee, with volume pricing on larger blocks",
+      "One-page RespOrg form for toll-free ports",
       "Bulk ports across multiple losing carriers at once",
     ],
     link: {
@@ -147,8 +150,8 @@ const products: Product[] = [
       "The day-to-day settings behind your numbers, all of them self-service in the portal.",
     points: [
       "Set the billing telephone number for the account",
-      "Default area code for extension-length dialing",
-      "Default inbound prefix on the digits you receive",
+      "Default area code for seven-digit dialing",
+      "Flexible inbound prefix: ten-digit, leading 1, or E.164",
     ],
     link: { href: "/docs/manage-your-btn", label: "Manage your BTN" },
   },
@@ -189,10 +192,10 @@ const costs = [
   },
   {
     name: "Number porting",
-    price: "$5",
-    unit: "per port order, once",
+    price: "One-time",
+    unit: "on the rate card",
     detail:
-      "One charge for the whole order, however many numbers are on it. Nothing recurring for having ported in.",
+      "A single charge to bring your numbers across, with volume pricing on larger blocks. Nothing recurring for having ported in.",
   },
   {
     name: "Activation",
@@ -205,8 +208,9 @@ const costs = [
   {
     name: "Outbound caller ID (CNAM)",
     price: "$0.99",
-    unit: "per month",
-    detail: "Show your business name instead of a bare number on outbound calls.",
+    unit: "per number, per month",
+    detail:
+      "Show your business name instead of a bare number on outbound calls, priced per number rather than per account.",
   },
   {
     name: "E-911",
@@ -231,7 +235,7 @@ const faqs = [
   },
   {
     q: "Can I port a large batch from several different carriers?",
-    a: "Yes. Thousands of numbers spread across multiple losing carriers can go in as a single submission, and we manage the process for you. Toll-free numbers need only a one-page RESPORG form from your side.",
+    a: "Yes. Thousands of numbers spread across multiple losing carriers can go in as a single submission, and we manage the process for you. Toll-free numbers need only a one-page RespOrg form from your side.",
   },
   {
     q: "What stops someone porting my numbers away?",
@@ -243,7 +247,7 @@ const faqs = [
   },
   {
     q: "What do numbers cost?",
-    a: "Local numbers are $1.99 per number per month and toll-free numbers are $2.99. Porting in from another carrier is a one-time $5 per port order rather than per number, so a batch of two hundred costs the same $5 as a single line. There are no activation fees and no minimum order, so a single number costs the same per month as the thousandth one. Inbound minutes bill separately at your account plan rate, metered or un-metered.",
+    a: "Local numbers are $1.99 per number per month and toll-free numbers are $2.99. Porting in from another carrier carries a one-time fee, listed on the pricing page, with volume pricing on larger blocks. There are no activation fees and no minimum order, so a single number costs the same per month as the thousandth one. Inbound minutes bill separately at your account plan rate, metered or un-metered, apart from toll-free numbers, where inbound runs $0.015 a minute and outbound is free.",
   },
 ];
 
@@ -360,10 +364,10 @@ export default function Page() {
                 Bring the numbers with you.
               </h2>
               <p className="mt-6 leading-relaxed text-muted-foreground">
-                Changing carrier should not mean changing the number on your vans, your
-                invoices, and every listing you have ever paid for. Porting is the part of
-                the move that goes wrong most often, so it is the part we do not leave to
-                a form.
+                Changing carrier should not mean changing the number on your vehicles,
+                your invoices, and every listing you have ever paid for. Porting is the
+                part of the move that goes wrong most often, so it is the part we do not
+                leave to a form.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
                 <Button render={<Link href="/talk-to-sales" />}>Start a port</Button>
@@ -408,7 +412,9 @@ export default function Page() {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               Each of these stands on its own, and they all share one portal, one invoice,
-              and one support number.
+              and one support number. The numbers are ours to issue: NECA recognizes us as
+              an IPES with FCC numbering authorization, and on toll-free we are the
+              RespOrg of record rather than renting that from another carrier.
             </p>
           </div>
 
@@ -462,9 +468,8 @@ export default function Page() {
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
               Local numbers are $1.99 a month and toll-free $2.99, with no activation fee
-              and no minimum order. Bringing existing numbers in costs $5 for the port,
-              not for each number. Inbound minutes bill at your account plan rate, metered
-              or un-metered.
+              and no minimum order. Inbound minutes bill at your account plan rate,
+              metered or un-metered.
             </p>
           </div>
 
@@ -503,7 +508,7 @@ export default function Page() {
               href="/pricing"
               className="group inline-flex items-center gap-1.5 font-semibold text-brand-blue"
             >
-              See every rate, including voice
+              See the full rate card, including voice
               <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>

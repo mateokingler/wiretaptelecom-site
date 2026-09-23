@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CableIcon, ShieldCheckIcon, WaypointsIcon } from "lucide-react";
+import { BuildingIcon, CableIcon, ShieldCheckIcon, WaypointsIcon } from "lucide-react";
 import {
   MAP_HEIGHT,
   MAP_WIDTH,
@@ -44,8 +44,9 @@ export function NetworkMap() {
   const serving = POPS.find((pop) => pop.id === origin.pop) ?? POPS[0];
 
   // The next-closest region is where this call would go if the serving one
-  // dropped, which is the whole point of running more than one.
-  const failover = POPS.filter((pop) => pop.id !== serving.id).sort(
+  // dropped, which is the whole point of running more than one. Sibling
+  // facilities are excluded: losing the region takes both of them.
+  const failover = POPS.filter((pop) => pop.region !== serving.region).sort(
     (a, b) =>
       distance(origin.x, origin.y, a.x, a.y) - distance(origin.x, origin.y, b.x, b.y)
   )[0];
@@ -126,8 +127,8 @@ export function NetworkMap() {
       <p className="sr-only">
         A looping map of the continental United States showing calls arriving from cities
         across the country and routing to the nearest Wiretap region: Atlanta, which hosts
-        two points of presence, Miami, or Kansas City. Each call also lists the region it
-        would fall back to if the serving region went down.
+        two separate facilities named ATL1 and ATL2, Miami, or Kansas City. Each call also
+        lists the region it would fall back to if the serving region went down.
       </p>
 
       <div className="relative grid gap-8 lg:grid-cols-[1.45fr_1fr] lg:items-center lg:gap-10">
@@ -189,12 +190,13 @@ export function NetworkMap() {
             <span
               key={pop.id}
               className={cn(
-                "absolute -translate-x-1/2 -translate-y-full whitespace-nowrap text-[0.7rem] font-semibold transition-colors duration-500",
+                "absolute -translate-x-1/2 whitespace-nowrap text-[0.7rem] font-semibold transition-colors duration-500",
+                !pop.labelBelow && "-translate-y-full",
                 pop.id === serving.id && landed ? "text-primary" : "text-white/70"
               )}
               style={{
                 left: `${(pop.x / MAP_WIDTH) * 100}%`,
-                top: `${((pop.y - 14) / MAP_HEIGHT) * 100}%`,
+                top: `${((pop.y + (pop.labelBelow ? 14 : -14)) / MAP_HEIGHT) * 100}%`,
               }}
             >
               {pop.label}
@@ -205,12 +207,12 @@ export function NetworkMap() {
         <div>
           <p className="eyebrow text-brand-sky">Live routing</p>
           <h3 className="display mt-3 text-2xl sm:text-3xl">
-            Four points of presence, three regions.
+            Nationwide, from four points of presence.
           </h3>
           <p className="mt-4 leading-relaxed text-white/75">
-            Every trunk terminates in Atlanta, Miami, and Kansas City at once. A call
-            takes the closest region, and the others are already standing by, not waiting
-            to be provisioned.
+            Wherever you are in the lower 48, your trunk terminates in Atlanta, Miami, and
+            Kansas City at once. A call takes the closest region, and the others are
+            already standing by, not waiting to be provisioned.
           </p>
 
           <dl className="mt-7 space-y-3.5">
@@ -228,7 +230,7 @@ export function NetworkMap() {
           <ul className="mt-6 space-y-2.5 text-sm text-white/75">
             <li className="flex items-center gap-2.5">
               <CableIcon className="size-4 shrink-0 text-brand-sky" />
-              Direct interconnects to mobile operators in the same buildings
+              Direct PSTN backbone interconnects in the same buildings
             </li>
             <li className="flex items-center gap-2.5">
               <WaypointsIcon className="size-4 shrink-0 text-brand-sky" />
@@ -237,6 +239,10 @@ export function NetworkMap() {
             <li className="flex items-center gap-2.5">
               <ShieldCheckIcon className="size-4 shrink-0 text-brand-sky" />
               STIR/SHAKEN signing on every outbound call
+            </li>
+            <li className="flex items-center gap-2.5">
+              <BuildingIcon className="size-4 shrink-0 text-brand-sky" />
+              Tier III+ data centers, all inside the United States
             </li>
           </ul>
         </div>

@@ -86,7 +86,7 @@ const sendingSteps = [
   },
   {
     title: "Send, and watch it cross",
-    body: "The fax appears in Fax-Tracker within about five seconds and updates itself from there. Confirmation emails are optional, set per number and overridable for the one person who does not want them.",
+    body: "The fax appears in Fax-Tracker™ within about five seconds and updates itself from there. Confirmation emails are optional, set per number and overridable for the one person who does not want them.",
   },
 ];
 
@@ -315,10 +315,10 @@ export default function Page() {
               Watch the fax, not the machine.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-              Fax-Tracker is a live view of everything moving in and out, updating within
-              seconds and without a refresh. You see the stage each fax has reached, the
-              gateway and route carrying it, and — when one fails — the reason, in a
-              click.
+              Fax-Tracker™ is a live view of everything moving in and out, updating
+              within seconds and without a refresh. You see the stage each fax has
+              reached, the gateway and route carrying it, and — when one fails — the
+              reason, in a click.
             </p>
           </div>
 
@@ -514,7 +514,7 @@ export default function Page() {
               href="/pricing"
               className="group inline-flex items-center gap-1.5 font-semibold text-brand-blue"
             >
-              See every rate, including voice
+              See the full rate card, including voice
               <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>

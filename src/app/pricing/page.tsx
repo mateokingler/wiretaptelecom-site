@@ -3,8 +3,8 @@ import Link from "next/link";
 import {
   CheckIcon,
   HeadphonesIcon,
-  LayoutDashboardIcon,
   ShieldCheckIcon,
+  ZapIcon,
 } from "lucide-react";
 import { BillEstimator } from "@/components/bill-estimator";
 import { RateComparison } from "@/components/rate-comparison";
@@ -65,11 +65,25 @@ const addOns = [
     detail: "Nationwide toll-free, active on your trunk within about a minute.",
   },
   {
+    name: "Toll-free inbound calling",
+    price: "$0.015",
+    unit: "per minute",
+    detail:
+      "Minutes your callers spend reaching you on a toll-free number, billed to you instead of to them, and priced separately from the number itself.",
+  },
+  {
+    name: "Toll-free outbound calling",
+    price: "Free",
+    unit: "",
+    detail: "Calls placed out from a toll-free number carry no per-minute charge.",
+    included: true,
+  },
+  {
     name: "Number porting",
     price: "$5",
-    unit: "per port order, once",
+    unit: "per number, once",
     detail:
-      "Charged once per order, not per number, whether it carries one number or five hundred.",
+      "A one-time charge on each number you bring across, with volume pricing on larger blocks. Nothing recurring for having ported in.",
   },
   {
     name: "STIR/SHAKEN signing",
@@ -81,8 +95,9 @@ const addOns = [
   {
     name: "Outbound caller ID (CNAM)",
     price: "$0.99",
-    unit: "per month",
-    detail: "Show your business name instead of a bare number on outbound calls.",
+    unit: "per number, per month",
+    detail:
+      "Show your business name instead of a bare number on outbound calls, priced per number rather than per account.",
   },
   {
     name: "Inbound caller ID (dip)",
@@ -93,7 +108,7 @@ const addOns = [
   {
     name: "STIR/SHAKEN verification",
     price: "$0.0095",
-    unit: "per call",
+    unit: "per inbound call",
     detail: "Check the attestation on inbound calls and surface a trust score.",
   },
   {
@@ -103,10 +118,18 @@ const addOns = [
     detail: "Registered emergency location, billed per location rather than bundled.",
   },
   {
+    name: "Business texting (Core-SMS)",
+    price: "$4.99",
+    unit: "per month",
+    detail:
+      "Turns SMS and MMS on for the account. The per-message rates below are billed on top.",
+  },
+  {
     name: "Inbound SMS and MMS",
     price: "Free",
-    unit: "",
-    detail: "Messages you receive are not billed, on either plan.",
+    unit: "on local numbers",
+    detail:
+      "Messages you receive on a local number are not billed, on either plan. Toll-free messaging is priced below.",
     included: true,
   },
   {
@@ -122,11 +145,25 @@ const addOns = [
     detail: "Picture and group messaging from the same registered numbers.",
   },
   {
-    name: "Toll-free calling",
-    price: "Talk to sales",
-    unit: "",
-    detail: "Minutes carried on a toll-free number, priced separately from the number.",
-    quoted: true,
+    name: "Toll-free SMS and MMS",
+    price: "$0.0120",
+    unit: "per message, in or out",
+    detail:
+      "Texting on a toll-free number, billed the same in both directions. Toll-free traffic runs on its own carrier verification rather than 10DLC.",
+  },
+  {
+    name: "10DLC brand registration",
+    price: "$50",
+    unit: "once",
+    detail:
+      "Registers your business with The Campaign Registry. You fill in one form and we prepare and file it, including any refiling if it comes back.",
+  },
+  {
+    name: "10DLC campaign registration",
+    price: "$5",
+    unit: "per campaign, per month",
+    detail:
+      "Each approved campaign carries a monthly fee for as long as it is live. Carriers block messages from local numbers without one.",
   },
   {
     name: "Email-to-fax (Core-Fax)",
@@ -145,10 +182,10 @@ const included = [
       "Phone and live chat with telecom specialists, included on both plans. No tiered ticket queue between you and someone who knows SIP.",
   },
   {
-    icon: LayoutDashboardIcon,
-    title: "Portal access",
+    icon: ZapIcon,
+    title: "Free service activations",
     detail:
-      "Set up trunks, assign numbers, configure failover, and read call and fax logs. Real-time monitoring of your whole account.",
+      "Other carriers bill a setup fee on every number you buy. Ours go live within seconds of purchase, whether you take one or ten thousand, and standing up another trunk costs nothing either.",
   },
   {
     icon: ShieldCheckIcon,
@@ -169,11 +206,15 @@ const faqs = [
   },
   {
     q: "Is there a contract or a minimum?",
-    a: "The metered plan has no monthly commitment and no minimum spend, so you pay only for the minutes you use. Unmetered is billed per call path, per month, and you can change your path count as your traffic changes.",
+    a: "No contract either way, and you can move between plans as your volume changes. Metered has no term, though it does carry a $15.99 monthly minimum, so a very quiet month bills at least that much. Unmetered is billed per call path, per month, and you can change your path count whenever your traffic does.",
   },
   {
     q: "What is not included in these rates?",
-    a: "The plan rates cover domestic voice for the continental US (lower 48). Phone numbers, porting, and the other add-ons are listed above and billed on top. Taxes and regulatory fees, toll-free calling, and international calling are quoted separately. Ask us for a full quote covering everything you actually use.",
+    a: "The plan rates cover domestic voice for the continental US (lower 48). Phone numbers, porting, toll-free minutes, and the other add-ons are listed above and billed on top. Taxes, regulatory fees, calls to Alaska and Hawaii, and international calling are quoted separately. Ask us for a full quote covering everything you actually use.",
+  },
+  {
+    q: "What does 10DLC cost?",
+    a: "Fifty dollars once to register your brand with The Campaign Registry, then $5 a month for each campaign you keep live. We prepare and file both, and refile at no extra charge if a campaign comes back. Registration is only needed for texting from local numbers; toll-free messaging uses its own verification instead.",
   },
   {
     q: "How does STIR/SHAKEN billing work?",
@@ -181,7 +222,7 @@ const faqs = [
   },
   {
     q: "What happens to my existing numbers?",
-    a: "Port them across, in bulk if you need to, for $5 per port order rather than per number. We prepare the paperwork and schedule the cutover so there is no gap in service, and your numbers keep working through the move.",
+    a: "Port them across, in bulk if you need to. The one-time porting fee is in the add-ons above, with volume pricing once the block gets large enough to ask about. We prepare the paperwork and schedule the cutover so there is no gap in service, and your numbers keep working through the move.",
   },
 ];
 
@@ -207,9 +248,9 @@ export default function Page() {
               </h1>
 
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                Domestic voice across the continental US, metered or unmetered. Every rate
-                we charge is on this page, including the add-ons most carriers make you
-                ask about.
+                Metered or unmetered voice for the lower 48, with the add-ons most
+                carriers make you ask about priced right here. Alaska, Hawaii,
+                international, and taxes are quoted separately.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
@@ -242,7 +283,9 @@ export default function Page() {
                     Most popular
                   </span>
                 </div>
-                <p className="mt-2 text-white/70">Pay only for the minutes you use.</p>
+                <p className="mt-2 text-white/70">
+                  Pay for the minutes you use, above a $15.99 monthly minimum.
+                </p>
 
                 <dl className="mt-8 grid gap-4 sm:grid-cols-2">
                   {meteredRates.map((rate) => (
@@ -387,20 +430,10 @@ export default function Page() {
                   <span
                     className={cn(
                       "text-xl font-semibold tracking-tight tabular-nums",
-                      addOn.included && "text-brand-blue",
-                      addOn.quoted && "text-base font-semibold text-brand-blue"
+                      addOn.included && "text-brand-blue"
                     )}
                   >
-                    {addOn.quoted ? (
-                      <Link
-                        href="/talk-to-sales"
-                        className="underline-offset-4 hover:underline"
-                      >
-                        {addOn.price}
-                      </Link>
-                    ) : (
-                      addOn.price
-                    )}
+                    {addOn.price}
                   </span>
                   {addOn.unit && (
                     <span className="block text-sm text-muted-foreground sm:mt-0.5">
@@ -414,8 +447,8 @@ export default function Page() {
 
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             Plan rates cover domestic voice across the continental US (lower 48). Taxes,
-            regulatory fees, toll-free calling, and international calling are quoted
-            separately.
+            regulatory fees, calls to Alaska and Hawaii, and international calling are
+            quoted separately.
           </p>
         </div>
       </section>

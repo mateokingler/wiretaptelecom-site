@@ -71,7 +71,7 @@ const phases: Phase[] = [
   {
     id: "forward",
     lanes: ["failed", "failed", "live"],
-    landing: { icon: SmartphoneIcon, label: MOBILE, sub: "Failover forward", tone: "ok" },
+    landing: { icon: SmartphoneIcon, label: MOBILE, sub: "Failover number", tone: "ok" },
     banner: { tone: "ok", text: "Calls forwarding off-net to the on-call mobile" },
     hold: 3600,
   },
@@ -90,7 +90,7 @@ const lanes: { id: string; icon: LucideIcon; name: string; detail: string }[] = 
   {
     id: "forward",
     icon: PhoneForwardedIcon,
-    name: "Failover forward",
+    name: "Failover number",
     detail: "Off-net to mobile",
   },
 ];

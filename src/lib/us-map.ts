@@ -19,28 +19,32 @@ export const US_STATES =
 
 export type Pop = {
   id: string;
+  /** Facilities sharing a region fail over to another region, not to each other. */
+  region: string;
   city: string;
   label: string;
-  nodes: number;
+  /** Set where a neighboring marker's label would otherwise collide. */
+  labelBelow?: boolean;
   x: number;
   y: number;
 };
 
 export const POPS: Pop[] = [
-  { id: "atl", city: "Atlanta", label: "ATL1 · ATL2", nodes: 2, x: 528.5, y: 290.9 },
-  { id: "mia", city: "Miami", label: "MIA", nodes: 1, x: 608.5, y: 415.1 },
-  { id: "kan", city: "Kansas City", label: "KAN", nodes: 1, x: 386, y: 209.7 },
+  { id: "atl1", region: "atl", city: "Atlanta", label: "ATL1", x: 515.5, y: 283.9 },
+  { id: "atl2", region: "atl", city: "Atlanta", label: "ATL2", labelBelow: true, x: 541.5, y: 297.9 },
+  { id: "mia", region: "mia", city: "Miami", label: "MIA", x: 608.5, y: 415.1 },
+  { id: "kan", region: "kan", city: "Kansas City", label: "KAN", x: 386, y: 209.7 },
 ];
 
 export type Origin = { city: string; pop: string; x: number; y: number };
 
 export const ORIGINS: Origin[] = [
   { city: "Seattle, WA", pop: "kan", x: 70.6, y: 24.7 },
-  { city: "Boston, MA", pop: "atl", x: 672.2, y: 114.3 },
+  { city: "Boston, MA", pop: "atl2", x: 672.2, y: 114.3 },
   { city: "Los Angeles, CA", pop: "kan", x: 62.6, y: 259.7 },
   { city: "Tampa, FL", pop: "mia", x: 569, y: 384.2 },
   { city: "Denver, CO", pop: "kan", x: 252.5, y: 193.5 },
-  { city: "Charlotte, NC", pop: "atl", x: 573.3, y: 259.2 },
+  { city: "Charlotte, NC", pop: "atl2", x: 573.3, y: 259.2 },
   { city: "Austin, TX", pop: "kan", x: 342.3, y: 359.4 },
-  { city: "Columbus, OH", pop: "atl", x: 533.3, y: 183.9 },
+  { city: "Columbus, OH", pop: "atl1", x: 533.3, y: 183.9 },
 ];

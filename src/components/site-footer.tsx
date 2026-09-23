@@ -154,8 +154,14 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="shell flex flex-wrap items-center justify-between gap-3 py-6 text-xs text-white/50">
+        <div className="shell flex flex-wrap items-center justify-between gap-x-8 gap-y-2 py-6 text-xs text-white/50">
           <p>© {new Date().getFullYear()} Wiretap Telecom. All rights reserved.</p>
+          {/* The PBX marks are shown to signal compatibility, so the notice has to
+              disclaim endorsement as well as acknowledge ownership. */}
+          <p className="max-w-3xl text-balance sm:text-right">
+            Third-party product names and logos are trademarks of their respective
+            owners, shown to indicate compatibility, not affiliation or endorsement.
+          </p>
         </div>
       </div>
     </footer>
