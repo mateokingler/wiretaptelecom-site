@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { siteUrl } from "@/lib/site";
+import { isCanonicalSite, siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,6 +26,11 @@ export const metadata: Metadata = {
   },
   description:
     "Carrier-grade SIP trunking, phone numbers, SMS, and fax for MSPs and PBX teams. Talk to sales at Wiretap Telecom.",
+  // Resolved per route against metadataBase, so every page points at itself on
+  // the canonical origin. Keeps tracking query strings such as the smart-URL
+  // ?service= parameter from being indexed as separate pages.
+  alternates: { canonical: "./" },
+  ...(isCanonicalSite ? {} : { robots: { index: false, follow: false } }),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

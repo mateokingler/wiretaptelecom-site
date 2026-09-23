@@ -27,6 +27,7 @@ Copy these into `.env.local` (gitignored) and set them on the host:
 
 ## Notes
 
-- Marked `noindex` while this is a redesign mock.
+- `robots.ts` allows crawling only when the build's site URL is the production
+  origin, so staging and preview deploys stay out of the index.
 - Brand assets live under `public/brand` and `public/products`.
 - Kibo MCP in Cursor was unavailable during scaffolding; components were added with `npx kibo-ui add`.
